@@ -626,7 +626,7 @@
                     android:text="@string/question_6" />
 
                 <CheckBox
-                    android:id="@+id/check_question_6_ans_1"
+                    android:id="@+id/chkBoxQ6Ans1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/syncopate"
@@ -634,7 +634,7 @@
                     android:textColor="@color/colorCipher" />
 
                 <CheckBox
-                    android:id="@+id/check_question_6_ans_2"
+                    android:id="@+id/chkBoxQ6Ans2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/syncopate"
@@ -642,7 +642,7 @@
                     android:textColor="@color/colorCipher" />
 
                 <CheckBox
-                    android:id="@+id/check_question_6_ans_3"
+                    android:id="@+id/chkBoxQ6Ans3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/syncopate"
@@ -650,7 +650,7 @@
                     android:textColor="@color/colorCipher" />
 
                 <CheckBox
-                    android:id="@+id/check_question_6_ans_4"
+                    android:id="@+id/chkBoxQ6Ans4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/syncopate"

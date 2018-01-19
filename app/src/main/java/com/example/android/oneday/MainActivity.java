@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
-import android.widget.CheckBox.OnCheckedChangeListener;
-// import android.widget.CompoundButton;
+//import android.widget.CheckBox.OnCheckedChangeListener;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radio_question_3_ans_1, radio_question_3_ans_2, radio_question_3_ans_3, radio_question_3_ans_4;
     private RadioButton radio_question_4_ans_1, radio_question_4_ans_2, radio_question_4_ans_3, radio_question_4_ans_4;
     private RadioButton radio_question_5_ans_1, radio_question_5_ans_2, radio_question_5_ans_3, radio_question_5_ans_4;
-    private CheckBox checkBox
-    private CheckBox check_question_6_ans_1, check_question_6_ans_2, check_question_6_ans_3, check_question_6_ans_4;
+    private CheckBox checkBox;
+    private CheckBox chkBoxQ6Ans1, chkBoxQ6Ans2, chkBoxQ6Ans3, chkBoxQ6Ans4;
 
 
 
@@ -196,39 +196,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        /**
-         * Question 6 - Toast message which answer is correct (first 3 answers are correct)
-         */
-
-        checkBox = (CheckBox) findViewById(R.id.check_question_6_ans_1);
-        checkBox = (CheckBox) findViewById(R.id.check_question_6_ans_2);
-        checkBox = (CheckBox) findViewById(R.id.check_question_6_ans_3);
-        checkBox = (CheckBox) findViewById(R.id.check_question_6_ans_4);
-        checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 
-            @Override
-            public void onCheckedChanged(CheckBox checkBox, int checkedId) {
 
-                // find which checkbox is selected
 
-                if (checkedId == R.id.check_question_6_ans_1) && (checkedId == R.id.check_question_6_ans_2) && (checkedId == R.id.check_question_6_ans_3)  {
 
-                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
-                            Toast.LENGTH_SHORT).show();
-
-                } else if (checkedId == R.id.radio_question_5_ans_1) {
-
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
-                            Toast.LENGTH_SHORT).show();
-
-                } else {
-
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
 
 
@@ -238,15 +210,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-
-
-
-
-
-
-
 
 
     /**
