@@ -1,11 +1,81 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--  cipher text style-->
+    <style name="cipher" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/cipher_bcg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/syncopate</item>
+        <item name="android:textColorHint">@color/colorCipher</item>
+        <item name="android:layout_margin">5dp</item>
+    </style>
+
+    <!--  main title text style-->
+    <style name="title_main" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">25sp</item>
+        <item name="fontFamily">@font/syncopate</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorCipher</item>
+    </style>
+
+    <!--  subtitle text style-->
+    <style name="subtitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:gravity">end</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/syncopate</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorCipher</item>
+    </style>
+
+    <!--  subtitle second text style-->
+    <style name="subtitle2" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/syncopate</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorCipher</item>
+    </style>
+
+    <!--  fact style-->
+    <style name="factStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/syncopate</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <!--  question Title text style-->
+    <style name="questionTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/syncopate</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+
+    <!--  question text style-->
+    <style name="questionTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/syncopate</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
     </style>
 
 </resources>

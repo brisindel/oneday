@@ -1,3 +1,111 @@
 <resources>
-    <string name="app_name">oneday</string>
+    <!--App name-->
+    <string name="app_name">Jeden den v Praze</string>
+    <string name="app_name2">poznejte Prahu, rozlouskněte šifru</string>
+    <string name="intro">Pojďte s námi objevit malebná zákoutí úžasného města. Na každém místě se nachází indicie k tajemné šifře.</string>
+
+    <string name="user_name">vaše jméno</string>
+
+    //Title of
+    <string name="title">Zajímavosti o Praze</string>
+
+    //Fact 1
+    <string name="fact_1">\u25CF Matka měst</string>
+
+    //Fact 2
+    <string name="fact_2">\u25CF Město sto věží</string>
+
+    //Fact 3
+    <string name="fact_3">\u25CF Magická atmosféra</string>
+
+    //Fact 4
+    <string name="fact_4">\u25CF Srdce Evropy</string>
+
+    //Fact 5
+    <string name="fact_5">\u25CF Největší hrad</string>
+
+    //Fact 6
+    <string name="fact_6">\u25CF Nejlepší pivo</string>
+
+    <string name="start">Dobrodružná cesta začíná...</string>
+
+
+    <!--Question 1-->
+    <string name="question_1_place">1. Václavské náměstí</string>
+
+    <string name="question_1_description">Výlet začneme ve společenském centru Prahy. Navštivte: Národní muzeum, pomník sv. Václava, palác Lucerna. Ze spodní části Václavského náměstí pak pokračujte dolů k dalšímu místu.</string>
+
+    <string name="question_1">Indicie: Jaká jsou jména patronů České země na pomníku svatého Václava?</string>
+
+    <string name="question_1_ans_1">Václav, Anežka Česká, Jan Nepomucký</string>
+    <string name="question_1_ans_2">Václav, Cyril, Metoděj, Vít, Vojtěch</string>
+    <string name="question_1_ans_3">Václav, Petr, Pavel</string>
+    <string name="question_1_ans_4">Václav, Anežka Česká, Ludmila, Vojtěch, Prokop</string>
+
+
+    <!--Question 2-->
+    <string name="question_2_place">2. Staroměstské náměstí</string>
+
+    <string name="question_2_description">Úchvatné místo, na kterém musíte vidět: Staroměstský orloj, chrám panny Marie před Týnem, socha... V horní části náměstí u orloje pak zamiřte doleva k dalšímu místu.</string>
+
+    <string name="question_2">Indicie: Jak často se v oknech orloje objevují pohybliví apoštolové?</string>
+
+    <string name="question_2_ans_1">Každou hodinu</string>
+    <string name="question_2_ans_2">Každý den v poledne</string>
+    <string name="question_2_ans_3">Každý den v 6, 12, 18 a 24 hodin</string>
+    <string name="question_2_ans_4">Pouze na Nový rok</string>
+
+
+    <!--Question 3-->
+    <string name="question_3_place">3. Karlův most</string>
+
+    <string name="question_3_description">Druhý nejstarší most v Čechách z roku 1357. Nejznámější z 30 pražských mostů s 30 úchvatnými sochami. Po pravé straně uvidíte náš další cíl - Pražský hrad.</string>
+
+    <string name="question_3">Indicie: Jaký je počet pilířů Karlova mostu?</string>
+
+    <string name="question_3_ans_1">12</string>
+    <string name="question_3_ans_2">13</string>
+    <string name="question_3_ans_3">15</string>
+    <string name="question_3_ans_4">16</string>
+
+    <!--Question 4-->
+    <string name="question_4_place">4. Pražský hrad</string>
+
+    <string name="question_4_description">Největší starobylý hrad na světě s rozlohou 7,28 ha, který obývá prezident republiky. Nenechte si ujít katedrálu svatého Víta, Starý královský palác, Zlatou uličku. Užijte si nádherná místa a poté se vraťte zpět ke Karlovu mostu k dalšímu místu.</string>
+
+    <string name="question_4">Indicie: Stavba katedrály svatého Víta byla zahájena v roce 1344. Který rok byla dokončena?</string>
+
+    <string name="question_4_ans_1">1929</string>
+    <string name="question_4_ans_2">1561</string>
+    <string name="question_4_ans_3">1770</string>
+    <string name="question_4_ans_4">1385</string>
+
+    <!--Question 5-->
+    <string name="question_5_place">5. Kampa</string>
+
+    <string name="question_5_description">Pražské Benátky, druhý nejkrásnější městský ostrov světa. Navštivte Werichovu vilu, Sovovy mlýny, Čertovku. Na konci ostrova přejděte most Legií k dalšímu místu.</string>
+
+    <string name="question_5">Indicie: Po které slavné osobnosti je pojmenovaná zeď nedaleko ostrova Kampa?</string>
+
+    <string name="question_5_ans_1">W. A. Mozart</string>
+    <string name="question_5_ans_2">John Lennon</string>
+    <string name="question_5_ans_3">král Karel IV.</string>
+    <string name="question_5_ans_4">Albert Einstein</string>
+
+    <!--Question 6-->
+    <string name="question_6_place">6. Kavárna Slavia</string>
+
+    <string name="question_6_description">Naše putování končí naproti Národnímu divadlu ve světoznámé kavárně, která vám také prozradí poslední indicii k rozluštění šifry. Dejte si šálek výtečné kávy se štrůdlem a z okna kavárny si připomeňte nádherná místa, která jste dnes navštívili.</string>
+
+    <string name="question_6">Indicie: Které slavné osobnosti navštívily kavárnu Slavii?</string>
+
+    <string name="question_6_ans_1">prezident Václav Havel</string>
+    <string name="question_6_ans_2">Hillary Clinton</string>
+    <string name="question_6_ans_3">Franz Kavka</string>
+    <string name="question_6_ans_4">J. W. Goethe</string>
+
+    <string name="cipher">Vltava /n je s délkou 430,2 km[1] nejdelší řeka v České republice. Na pražském toku Vltavy vzniklo osm ostrovů. Kromě Kampy je zejména Slovanský ostrov centrem společenského života. Od r. 1830 se tu v restauraci pořádají koncerty a bály. Koncertoval tu Fr. Liszt, H. Berlioz i P. I. Čajkovský. Bedřich Smetana v roce 1874 o Vltavě také složil slavnou symfonickou báseň z cyklu Má vlast. Vzpomenete si, z kolika pražských mostů můžete obdivovat její krásy a zákoutí? A pokud chcete zažít více, prohlédněte si Prahu prostřednictvím lodních výletů nebo si pronajměte malou lodičku.</string>
+
+    <string name="thanks">Děkujeme, že jste s námi vyrazili poznávat úchvatná místa a zákoutí města v srdci Evropy. Kouzelné Prahy.</string>
+
 </resources>
