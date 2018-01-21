@@ -190,6 +190,16 @@
 
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/start"
+                style="@style/subtitle2"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="36dp"
+                android:paddingTop="28dp"
+                android:text="@string/start" />
+
             <EditText
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
@@ -202,16 +212,6 @@
                 android:textColorHint="@color/colorCipher" />
 
 
-            <TextView
-                android:id="@+id/start"
-                style="@style/subtitle2"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="36dp"
-                android:paddingTop="28dp"
-                android:text="@string/start" />
-
             <LinearLayout
                 android:id="@+id/question_1"
                 android:layout_width="match_parent"
@@ -219,9 +219,16 @@
                 android:background="@drawable/question_bcg"
                 android:orientation="vertical">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
                 <TextView
                     style="@style/questionTitle"
-                    android:layout_width="match_parent"
+                    android:id="@+id/titleQ1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="@string/question_1_place"
@@ -231,56 +238,91 @@
                     style="@style/questionTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                   android:layout_below="@+id/titleQ1"
+                    android:layout_toLeftOf="@+id/mapQ1"
                     android:text="@string/question_1_description" />
+
+                    <ImageView
+                        android:id="@+id/mapQ1"
+                        style="@style/questionTitle"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/map_icon"
+                        />
+
+                </RelativeLayout>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:src="@drawable/wenceslas_square" />
 
-                <TextView
-                    style="@style/questionTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/question_1" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/quizIcon1"
+                        style="@style/questionTitle"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/quiz"
+                        />
+
+                    <TextView
+                        android:id="@+id/question1key"
+                        style="@style/questionTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/quizIcon1"
+                        android:layout_centerVertical="true"
+                        android:text="@string/question_1" />
+
+                </RelativeLayout>
 
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                     android:id="@+id/radioQuestion_1"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="8dp"
+                    style="@style/radioGroupStyle"
+
+                    >
 
                     <RadioButton
-                        android:id="@+id/radio_question_1_ans_1"
+                        android:id="@+id/radioQ1Ans1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/syncopate"
                         android:text="@string/question_1_ans_1"
-                        android:textColor="@color/colorCipher" />
+                        style="@style/radioGroupStyle"
+                        />
 
                     <RadioButton
-                        android:id="@+id/radio_question_1_ans_2"
+                        android:id="@+id/radioQ1Ans2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/syncopate"
                         android:text="@string/question_1_ans_2"
-                        android:textColor="@color/colorCipher" />
+                         />
 
                     <RadioButton
-                        android:id="@+id/radio_question_1_ans_3"
+                        android:id="@+id/radioQ1Ans3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/syncopate"
                         android:text="@string/question_1_ans_3"
-                        android:textColor="@color/colorCipher" />
+                        />
 
                     <RadioButton
-                        android:id="@+id/radio_question_1_ans_4"
+                        android:id="@+id/radioQ1Ans4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/syncopate"
                         android:text="@string/question_1_ans_4"
-                        android:textColor="@color/colorCipher" />
+                        />
 
                 </RadioGroup>
 
@@ -327,16 +369,15 @@
                     android:orientation="vertical">
 
                     <RadioButton
-                        android:id="@+id/radio_question_2_ans_1"
+                        android:id="@+id/radioQ2Ans1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
                         android:text="@string/question_2_ans_1"
-                        android:textColor="@color/colorCipher"
-                        />
+                        android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_2_ans_2"
+                        android:id="@+id/radioQ2Ans2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -344,7 +385,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_2_ans_3"
+                        android:id="@+id/radioQ2Ans3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -352,7 +393,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_2_ans_4"
+                        android:id="@+id/radioQ2Ans4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -404,7 +445,7 @@
                     android:orientation="vertical">
 
                     <RadioButton
-                        android:id="@+id/radio_question_3_ans_1"
+                        android:id="@+id/radioQ3Ans1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -412,7 +453,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_3_ans_2"
+                        android:id="@+id/radioQ3Ans2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -420,7 +461,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_3_ans_3"
+                        android:id="@+id/radioQ3Ans3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -428,7 +469,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_3_ans_4"
+                        android:id="@+id/radioQ3Ans4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -480,7 +521,7 @@
                     android:orientation="vertical">
 
                     <RadioButton
-                        android:id="@+id/radio_question_4_ans_1"
+                        android:id="@+id/radioQ4Ans1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -488,7 +529,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_4_ans_2"
+                        android:id="@+id/radioQ4Ans2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -496,7 +537,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_4_ans_3"
+                        android:id="@+id/radioQ4Ans3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -504,7 +545,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_4_ans_4"
+                        android:id="@+id/radioQ4Ans4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -556,7 +597,7 @@
                     android:orientation="vertical">
 
                     <RadioButton
-                        android:id="@+id/radio_question_5_ans_1"
+                        android:id="@+id/radioQ5Ans1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -564,7 +605,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_5_ans_2"
+                        android:id="@+id/radioQ5Ans2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -572,7 +613,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_5_ans_3"
+                        android:id="@+id/radioQ5Ans3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -580,7 +621,7 @@
                         android:textColor="@color/colorCipher" />
 
                     <RadioButton
-                        android:id="@+id/radio_question_5_ans_4"
+                        android:id="@+id/radioQ5Ans4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/syncopate"
@@ -669,6 +710,5 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
-
     </ScrollView>
 </LinearLayout>

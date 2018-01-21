@@ -21,15 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
     //Variables corresponding to the views.
     private RadioGroup radioGroup;
-    private RadioButton radio_question_1_ans_1, radio_question_1_ans_2, radio_question_1_ans_3, radio_question_1_ans_4;
-    private RadioButton radio_question_2_ans_1, radio_question_2_ans_2, radio_question_2_ans_3, radio_question_2_ans_4;
-    private RadioButton radio_question_3_ans_1, radio_question_3_ans_2, radio_question_3_ans_3, radio_question_3_ans_4;
-    private RadioButton radio_question_4_ans_1, radio_question_4_ans_2, radio_question_4_ans_3, radio_question_4_ans_4;
-    private RadioButton radio_question_5_ans_1, radio_question_5_ans_2, radio_question_5_ans_3, radio_question_5_ans_4;
+    private RadioButton radioQ1Ans1, radioQ1Ans2, radioQ1Ans3, radioQ1Ans4;
+    private RadioButton radioQ2Ans1, radioQ2Ans2, radioQ2Ans3, radioQ2Ans4;
+    private RadioButton radioQ3Ans1, radioQ3Ans2, radioQ3Ans3, radioQ3Ans4;
+    private RadioButton radioQ4Ans1, radioQ4Ans2, radioQ4Ans3, radioQ4Ans4;
+    private RadioButton radioQ5Ans1, radioQ5Ans2, radioQ5Ans3, radioQ5Ans4;
     private CheckBox checkBox;
     private CheckBox chkBoxQ6Ans1, chkBoxQ6Ans2, chkBoxQ6Ans3, chkBoxQ6Ans4;
-
-
 
 
     @Override
@@ -51,12 +49,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radio_question_1_ans_4) {
+                if (checkedId == R.id.radioQ1Ans4) {
 
                     Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
                             Toast.LENGTH_SHORT).show();
 
-                } else if (checkedId == R.id.radio_question_1_ans_1) {
+                } else if (checkedId == R.id.radioQ1Ans1) {
 
                     Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
                             Toast.LENGTH_SHORT).show();
@@ -70,37 +68,36 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        /**
+         * Question 2 - Toast message which answer is correct (1st answer is correct)
+         */
 
-    /**
-     * Question 2 - Toast message which answer is correct (1st answer is correct)
-     */
-
-    radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_2);
+        radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_2);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 
-        @Override
-        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-            // find which radio button is selected
+                // find which radio button is selected
 
-            if (checkedId == R.id.radio_question_2_ans_1) {
+                if (checkedId == R.id.radioQ2Ans1) {
 
-                Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
-                        Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
+                            Toast.LENGTH_SHORT).show();
 
-            } else if (checkedId == R.id.radio_question_2_ans_2) {
+                } else if (checkedId == R.id.radioQ2Ans2) {
 
-                Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
-                        Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                            Toast.LENGTH_SHORT).show();
 
-            } else {
+                } else {
 
-                Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
-                        Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
-        }
-    });
+        });
 
         /**
          * Question 3 - Toast message which answer is correct (3rd answer is correct)
@@ -115,12 +112,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radio_question_3_ans_3) {
+                if (checkedId == R.id.radioQ3Ans3) {
 
                     Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
                             Toast.LENGTH_SHORT).show();
 
-                } else if (checkedId == R.id.radio_question_3_ans_1) {
+                } else if (checkedId == R.id.radioQ3Ans1) {
 
                     Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
                             Toast.LENGTH_SHORT).show();
@@ -146,12 +143,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radio_question_4_ans_1) {
+                if (checkedId == R.id.radioQ4Ans1) {
 
                     Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
                             Toast.LENGTH_SHORT).show();
 
-                } else if (checkedId == R.id.radio_question_4_ans_2) {
+                } else if (checkedId == R.id.radioQ4Ans2) {
 
                     Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
                             Toast.LENGTH_SHORT).show();
@@ -177,12 +174,12 @@ public class MainActivity extends AppCompatActivity {
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radio_question_5_ans_2) {
+                if (checkedId == R.id.radioQ5Ans2) {
 
                     Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
                             Toast.LENGTH_SHORT).show();
 
-                } else if (checkedId == R.id.radio_question_5_ans_1) {
+                } else if (checkedId == R.id.radioQ5Ans2) {
 
                     Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
                             Toast.LENGTH_SHORT).show();
@@ -195,19 +192,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+/*
+        /**
+         * Question 6 - Toast message which answer is correct (first 3 answers are correct)
 
 
+        chkBoxQ6Ans1 = (CheckBox) findViewById(R.id.chkBoxQ6Ans1);
+        chkBoxQ6Ans1.setOnCheckedChangeListener(new OnCheckedChangeListener();
+        chkBoxQ6Ans2 = (CheckBox) findViewById(R.id.chkBoxQ6Ans2);
+        chkBoxQ6Ans2.setOnCheckedChangeListener(new OnCheckedChangeListener();
+        chkBoxQ6Ans3 = (CheckBox) findViewById(R.id.chkBoxQ6Ans3);
+        chkBoxQ6Ans3.setOnCheckedChangeListener(new OnCheckedChangeListener();
+        chkBoxQ6Ans4 = (CheckBox) findViewById(R.id.chkBoxQ6Ans4);
+        chkBoxQ6Ans4.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 
+            @Override
+            public void onCheckedChanged(CheckBox checkBox, int isChecked) {
 
+                // find which checkbox is selected
 
+                if (chkBoxQ6Ans1.isChecked() && (chkBoxQ6Ans2.isChecked() && (chkBoxQ6Ans3.isChecked()))) {
+                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
+                            Toast.LENGTH_SHORT).show();
 
+                } else if (isChecked == R.id.chkBoxQ6Ans4) {
+                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                            Toast.LENGTH_SHORT).show();
 
+                } else {
 
+                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                            Toast.LENGTH_SHORT).show();
 
-
-
-
+                }
+            }
+        });
+*/
 
     }
 
