@@ -1,20 +1,27 @@
 package com.example.android.oneday;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
-//import android.widget.CheckBox.OnCheckedChangeListener;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radioQ5Ans1, radioQ5Ans2, radioQ5Ans3, radioQ5Ans4;
     private CheckBox checkBox;
     private CheckBox chkBoxQ6Ans1, chkBoxQ6Ans2, chkBoxQ6Ans3, chkBoxQ6Ans4;
+    private boolean gameStarted;
+    private TextView letter1, letter2, letter3, letter4, letter5, letter6;
+    private EditText userName;
+    private ImageView mapQ1, mapQ2, mapQ3, mapQ4, mapQ5;
+    private ProgressBar progressBar;
+    private int progressStatus = 0;
+    private TextView textProgress;
+    private Handler handler = new Handler();
 
 
     @Override
@@ -36,11 +51,55 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        letter1 = findViewById(R.id.letter1);
+        letter2 = findViewById(R.id.letter2);
+        letter3 = findViewById(R.id.letter3);
+        letter4 = findViewById(R.id.letter4);
+        letter5 = findViewById(R.id.letter5);
+        letter6 = findViewById(R.id.letter6);
+        userName = findViewById(R.id.user_name);
+        gameStarted = false;
+
+
+        userName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!gameStarted) {
+                    gameStarted = true;
+                    letter1.setText("*");
+                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter2.setText("*");
+                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter3.setText("*");
+                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter4.setText("*");
+                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter5.setText("*");
+                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter6.setText("*");
+                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
+                }
+            }
+
+        });
+
+
         /**
          * Question 1 - Toast message which answer is correct (4th answer is correct)
          */
 
         radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_1);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        textProgress = (TextView) findViewById(R.id.textProgress);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
 
@@ -50,18 +109,42 @@ public class MainActivity extends AppCompatActivity {
                 // find which radio button is selected
 
                 if (checkedId == R.id.radioQ1Ans4) {
-
-                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
+                   // String true = getResources().getString(R.string.true);
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
+                    letter2.setText("L");
+                    letter2.setTextColor(getResources().getColor(R.color.colorCipher));
+
+                    /**
+                     * Progressbar change on correct answer
+                     */
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            while (progressStatus <= 0) {
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        progressBar.setProgress(progressStatus);
+                                        textProgress.setText(progressStatus + "/6");
+                                    }
+                                });
+                                progressStatus++;
+                            }
+                        }
+                    }).start();
+                    progressBar.setVisibility(View.INVISIBLE);
+
 
                 } else if (checkedId == R.id.radioQ1Ans1) {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -83,17 +166,19 @@ public class MainActivity extends AppCompatActivity {
 
                 if (checkedId == R.id.radioQ2Ans1) {
 
-                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
+                    letter5.setText("V");
+                    letter5.setTextColor(getResources().getColor(R.color.colorCipher));
 
                 } else if (checkedId == R.id.radioQ2Ans2) {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -114,17 +199,19 @@ public class MainActivity extends AppCompatActivity {
 
                 if (checkedId == R.id.radioQ3Ans3) {
 
-                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
+                    letter4.setText("A");
+                    letter4.setTextColor(getResources().getColor(R.color.colorCipher));
 
                 } else if (checkedId == R.id.radioQ3Ans1) {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -145,17 +232,19 @@ public class MainActivity extends AppCompatActivity {
 
                 if (checkedId == R.id.radioQ4Ans1) {
 
-                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
+                    letter6.setText("A");
+                    letter6.setTextColor(getResources().getColor(R.color.colorCipher));
 
                 } else if (checkedId == R.id.radioQ4Ans2) {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -176,62 +265,134 @@ public class MainActivity extends AppCompatActivity {
 
                 if (checkedId == R.id.radioQ5Ans2) {
 
-                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
+                    letter3.setText("T");
+                    letter3.setTextColor(getResources().getColor(R.color.colorCipher));
 
                 } else if (checkedId == R.id.radioQ5Ans2) {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-/*
+
         /**
          * Question 6 - Toast message which answer is correct (first 3 answers are correct)
+         */
 
+        chkBoxQ6Ans1 = findViewById(R.id.chkBoxQ6Ans1);
+        chkBoxQ6Ans2 = findViewById(R.id.chkBoxQ6Ans2);
+        chkBoxQ6Ans3 = findViewById(R.id.chkBoxQ6Ans3);
+        chkBoxQ6Ans4 = findViewById(R.id.chkBoxQ6Ans4);
 
-        chkBoxQ6Ans1 = (CheckBox) findViewById(R.id.chkBoxQ6Ans1);
-        chkBoxQ6Ans1.setOnCheckedChangeListener(new OnCheckedChangeListener();
-        chkBoxQ6Ans2 = (CheckBox) findViewById(R.id.chkBoxQ6Ans2);
-        chkBoxQ6Ans2.setOnCheckedChangeListener(new OnCheckedChangeListener();
-        chkBoxQ6Ans3 = (CheckBox) findViewById(R.id.chkBoxQ6Ans3);
-        chkBoxQ6Ans3.setOnCheckedChangeListener(new OnCheckedChangeListener();
-        chkBoxQ6Ans4 = (CheckBox) findViewById(R.id.chkBoxQ6Ans4);
-        chkBoxQ6Ans4.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
+        CompoundButton.OnCheckedChangeListener checkBoxListener = new CompoundButton.OnCheckedChangeListener() {
 
             @Override
-            public void onCheckedChanged(CheckBox checkBox, int isChecked) {
+            public void onCheckedChanged(CompoundButton button, boolean isChecked) {
 
                 // find which checkbox is selected
 
-                if (chkBoxQ6Ans1.isChecked() && (chkBoxQ6Ans2.isChecked() && (chkBoxQ6Ans3.isChecked()))) {
-                    Toast.makeText(getApplicationContext(), "Ano, to je správně, protože... Získáváš písmeno do tajenky. Pokračuj k dalšímu místu.",
+                if (chkBoxQ6Ans1.isChecked() && (chkBoxQ6Ans2.isChecked() && chkBoxQ6Ans3.isChecked() && !chkBoxQ6Ans4.isChecked())) {
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
-
-                } else if (isChecked == R.id.chkBoxQ6Ans4) {
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
-                            Toast.LENGTH_SHORT).show();
+                    letter1.setText("V");
+                    letter1.setTextColor(getResources().getColor(R.color.colorCipher));
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Bohužel, zkus na tomto místě objevit další indicie, které Ti mohou odhalit správnou odpověd.",
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
-
                 }
             }
-        });
-*/
+        };
+
+        chkBoxQ6Ans1.setOnCheckedChangeListener(checkBoxListener);
+        chkBoxQ6Ans2.setOnCheckedChangeListener(checkBoxListener);
+        chkBoxQ6Ans3.setOnCheckedChangeListener(checkBoxListener);
+        chkBoxQ6Ans4.setOnCheckedChangeListener(checkBoxListener);
 
     }
 
+    /**
+     * ImageView question 1 map Intent Vaclavske namesti
+     */
+
+    public void showMapQ1(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("geo:<" + 50.0797778 + ">,<" + 14.4297314 + ">?q=<" + 50.0797778 + ">,<" + 14.4297314 + ">(" + "Pomník svatého Václava" + ")"));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+
+    /**
+     * ImageView question 2 map Intent Staromestske namesti
+     */
+
+    public void showMapQ2(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("geo:<" + 50.0869922 + ">,<" + 14.4207228 + ">?q=<" + 50.0869922 + ">,<" + 14.4207228 + ">(" + "Staroměstské náměstí" + ")"));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    /**
+     * ImageView question 3 map Intent Karluv most
+     */
+
+    public void showMapQ3(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("geo:<" + 50.0865831 + ">,<" + 14.4102561 + ">?q=<" + 50.0865831 + ">,<" + 14.4102561 + ">(" + "Karlův most" + ")"));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    /**
+     * ImageView question 4 map Intent Prazsky hrad
+     */
+
+    public void showMapQ4(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("geo:<" + 50.0898689 + ">,<" + 14.4000936 + ">?q=<" + 50.0898689 + ">,<" + 14.4000936 + ">(" + "Pražský hrad" + ")"));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    /**
+     * ImageView question 5 map Intent Kampa
+     */
+
+    public void showMapQ5(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("geo:<" + 50.0862247 + ">,<" + 14.4067961 + ">?q=<" + 50.0862247 + ">,<" + 14.4067961 + ">(" + "Kampa" + ")"));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+    /**
+     * ImageView question 6 map Intent Kavarna Slavia
+     */
+
+    public void showMapQ6(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("geo:<" + 50.0815244 + ">,<" + 14.4134222 + ">?q=<" + 50.0815244 + ">,<" + 14.4134222 + ">(" + "Kavárna Slavia" + ")"));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
 
     /**
      * Hide soft keyboard after click outside EditText
