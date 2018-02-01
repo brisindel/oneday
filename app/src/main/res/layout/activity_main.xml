@@ -77,25 +77,33 @@
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2">
-
+<!--
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:indeterminate="true"
+                android:indeterminate="false"
                 android:max="6"
                 android:progress="1" />
+            -->
+
+            <ImageView
+                android:id="@+id/key2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/key2" />
 
             <TextView
                 android:id="@+id/textProgress"
+                style="@style/subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:hint="0"
                 android:textAlignment="center" />
 
         </RelativeLayout>
@@ -343,28 +351,34 @@
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_1_ans_1" />
+                        android:text="@string/question_1_ans_1"
+                        android:textColor="@drawable/radiobutton_selector"
+                        />
 
                     <RadioButton
                         android:id="@+id/radioQ1Ans2"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_1_ans_2" />
+                        android:text="@string/question_1_ans_2"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ1Ans3"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_1_ans_3" />
+                        android:text="@string/question_1_ans_3"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ1Ans4"
                         style="@style/radioGroupStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_1_ans_4" />
+                        android:text="@string/question_1_ans_4"
+                        android:textColor="@drawable/radiobutton_selector"
+                        />
 
                 </RadioGroup>
 
@@ -500,28 +514,32 @@
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_2_ans_1" />
+                        android:text="@string/question_2_ans_1"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ2Ans2"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_2_ans_2" />
+                        android:text="@string/question_2_ans_2"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ2Ans3"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_2_ans_3" />
+                        android:text="@string/question_2_ans_3"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ2Ans4"
                         style="@style/radioGroupStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_2_ans_4" />
+                        android:text="@string/question_2_ans_4"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                 </RadioGroup>
 
@@ -657,28 +675,32 @@
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_3_ans_1" />
+                        android:text="@string/question_3_ans_1"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ3Ans2"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_3_ans_2" />
+                        android:text="@string/question_3_ans_2"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ3Ans3"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_3_ans_3" />
+                        android:text="@string/question_3_ans_3"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ3Ans4"
                         style="@style/radioGroupStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_3_ans_4" />
+                        android:text="@string/question_3_ans_4"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                 </RadioGroup>
 
@@ -814,28 +836,32 @@
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_4_ans_1" />
+                        android:text="@string/question_4_ans_1"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ4Ans2"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_4_ans_2" />
+                        android:text="@string/question_4_ans_2"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ4Ans3"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_4_ans_3" />
+                        android:text="@string/question_4_ans_3"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ4Ans4"
                         style="@style/radioGroupStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_4_ans_4" />
+                        android:text="@string/question_4_ans_4"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                 </RadioGroup>
 
@@ -970,28 +996,32 @@
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_5_ans_1" />
+                        android:text="@string/question_5_ans_1"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ5Ans2"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_5_ans_2" />
+                        android:text="@string/question_5_ans_2"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ5Ans3"
                         style="@style/radioGroupStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_5_ans_3" />
+                        android:text="@string/question_5_ans_3"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                     <RadioButton
                         android:id="@+id/radioQ5Ans4"
                         style="@style/radioGroupStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/question_5_ans_4" />
+                        android:text="@string/question_5_ans_4"
+                        android:textColor="@drawable/radiobutton_selector"/>
 
                 </RadioGroup>
 
