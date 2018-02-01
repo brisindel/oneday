@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radioQ5Ans1, radioQ5Ans2, radioQ5Ans3, radioQ5Ans4;
     private CheckBox chkBoxQ6Ans1, chkBoxQ6Ans2, chkBoxQ6Ans3, chkBoxQ6Ans4;
     private boolean gameStarted;
+    private boolean letters;
     private TextView letter1, letter2, letter3, letter4, letter5, letter6;
     private EditText userName;
     private ImageView mapQ1, mapQ2, mapQ3, mapQ4, mapQ5;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         letter6 = findViewById(R.id.letter6);
         userName = findViewById(R.id.user_name);
         gameStarted = false;
+        letters = false;
 
 
         userName.addTextChangedListener(new TextWatcher() {
@@ -94,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
                     letter5.setTextColor(getResources().getColor(R.color.colorGold));
                     letter6.setText("*");
                     letter6.setTextColor(getResources().getColor(R.color.colorGold));
+
+
                 }
             }
 
@@ -386,16 +390,40 @@ public class MainActivity extends AppCompatActivity {
         chkBoxQ6Ans3.setOnCheckedChangeListener(checkBoxListener);
         chkBoxQ6Ans4.setOnCheckedChangeListener(checkBoxListener);
 
+        /**
+         * Show ThanksMessage page when game is finished
+         */
+
+        letter1.addTextChangedListener(new TextWatcher()
+
+        {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                if (letter1.getText().toString().equals("V") && letter2.getText().toString().equals("L") && letter3.getText().toString().equals("T") && letter4.getText().toString().equals("A") && letter5.getText().toString().equals("V") && letter6.getText().toString().equals("A")) {
+                    letters = true;
+
+                    Intent i = new Intent(getApplicationContext(), ThanksPage.class);
+                    startActivity(i);
+
+                }
+            }
+        });
     }
 
-    /**
-     * Show Dialog when game is finished
-     */
 
-
-    /**
-     * ImageView question 1 map Intent Vaclavske namesti
-     */
+        /**
+         * ImageView question 1 map Intent Vaclavske namesti
+         */
 
     public void showMapQ1(View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW);

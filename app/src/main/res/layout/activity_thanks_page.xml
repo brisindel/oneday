@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/top_bcg"
+    tools:context="com.example.android.oneday.MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/question_bcg"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/prague_bcg"/>
+
+        <TextView
+            style="@style/questionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bravo"
+            android:textSize="40dp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:id="@+id/topPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_bcg"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <ImageView
+                android:id="@+id/key"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:src="@drawable/key" />
+
+            <TextView
+                android:id="@+id/letter1"
+                style="@style/cipher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="V" />
+
+            <TextView
+                android:id="@+id/letter2"
+                style="@style/cipher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="L" />
+
+            <TextView
+                android:id="@+id/letter3"
+                style="@style/cipher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="T" />
+
+            <TextView
+                android:id="@+id/letter4"
+                style="@style/cipher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="A" />
+
+            <TextView
+                android:id="@+id/letter5"
+                style="@style/cipher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="V" />
+
+            <TextView
+                android:id="@+id/letter6"
+                style="@style/cipher"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="A" />
+
+            <ImageView
+                android:id="@+id/key2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:src="@drawable/key2" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/questionTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:textSize="16dp"
+            android:text="@string/cipher"/>
+
+        <TextView
+            style="@style/questionTextStyle"
+            android:paddingTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="@string/cipher2"/>
+
+        <TextView
+            style="@style/questionTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:textSize="16dp"
+            android:text="@string/thanks"/>
+
+        <TextView
+            android:background="@drawable/reset_btn"
+            android:layout_margin="8dp"
+            android:textColor="@color/colorGold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="@string/leave"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+</ScrollView>

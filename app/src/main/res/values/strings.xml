@@ -34,7 +34,7 @@
     <string name="question_1_place">1. Václavské náměstí</string>
 
     <!--Description + must visit 1-->
-    <string name="question_1_description">Výlet začneme v pražském kulturním, společenském a obchodním centru Prahy.</string>
+    <string name="question_1_description">Výlet začneme v pražském kulturním, společenském a obchodním centru.</string>
     <string name="question_1_visit"><b>Navštivte:</b> Národní muzeum, pomník sv. Václava, palác Lucerna.</string>
 
     <!--Quiz question 1-->
@@ -51,7 +51,7 @@
     <string name="question_2_place">2. Staroměstské náměstí</string>
 
     <!--Description + must visit 2-->
-    <string name="question_2_description">Historické jádro velkoměsta</string>
+    <string name="question_2_description">Historické jádro velkoměsta.</string>
     <string name="question_2_visit"><b>Navštivte:</b> Staroměstskou radnici, Staroměstský orloj, Týnský chrám, kostel sv. Mikuláše, Palác Kinských i pomník Mistra Jana Husa.</string>
 
     <!--Quiz question 2-->
@@ -69,7 +69,7 @@
     <string name="question_3_place">3. Karlův most</string>
 
     <!--Description + must visit 3-->
-    <string name="question_3_description">Druhý nejstarší most v Čechách z roku 1357. Nejznámější z 30 pražských mostů s 30 úchvatnými sochami.</string>
+    <string name="question_3_description">Druhý nejstarší most v Čechách je roku 1357. Nejznámější z 30 pražských mostů s 30 úchvatnými sochami.</string>
     <string name="question_3_visit"><b>Navštivte:</b> Staroměstskou mosteckou věž, Malostranskou mosteckou věž a prohlédněte si všechny sochy.</string>
 
     <!--Quiz question 3-->
@@ -80,7 +80,7 @@
     <string name="question_3_ans_4">16</string>
 
     <!--Next stop 3-->
-    <string name="direction3">Po pravé straně uvidíte náš další cíl - Pražský hrad. Následujte směrovky k dalšímu cíli.</string>
+    <string name="direction3">Po pravé straně uvidíte náš další cíl - Pražský hrad. Následujte směrovky k následujícímu cíli.</string>
 
     <!--Question 4-->
     <!--Place 4-->
@@ -88,10 +88,10 @@
 
     <!--Description + must visit 4-->
     <string name="question_4_description">Největší starobylý hrad na světě s rozlohou 7,28 ha, který obývá prezident republiky.</string>
-    <string name="question_4_visit"><b>Navštivte:</b> Katedrálu svatého Víta, Starý královský palác, Zlatou uličku, Prašnou věž, zahrady a každou hodinu střídání hradní stráže.</string>
+    <string name="question_4_visit"><b>Navštivte:</b> Katedrálu svatého Víta, Starý královský palác, Zlatou uličku, Prašnou věž, zahrady a střídání hradní stráže v každou hodinu.</string>
 
     <!--Quiz question 4-->
-    <string name="question_4">Indicie: Stavba katedrály svatého Víta byla zahájena v roce 1344. Který rok byla dokončena?</string>
+    <string name="question_4">Indicie: Stavba katedrály svatého Víta byla zahájena v roce 1344. Ve kterém roce byla dokončena?</string>
     <string name="question_4_ans_1">1929</string>
     <string name="question_4_ans_2">1561</string>
     <string name="question_4_ans_3">1770</string>
@@ -126,20 +126,26 @@
     <string name="question_6_description">Naše putování končí naproti Národnímu divadlu ve světoznámé kavárně, která vám prozradí poslední indicii k rozluštění šifry.</string>
     <string name="question_6_visit"><b>Navštivte:</b> Dejte si šálek výtečné kávy se štrůdlem a z okna kavárny si připomeňte nádherná místa, která jste dnes navštívili.</string>
 
-    <!--Quiz question 56-->
+    <!--Quiz question 6-->
     <string name="question_6">Indicie: Které slavné osobnosti navštívily kavárnu Slavii?</string>
     <string name="question_6_ans_1">prezident Václav Havel</string>
     <string name="question_6_ans_2">Hillary Clinton</string>
-    <string name="question_6_ans_3">Franz Kavka</string>
+    <string name="question_6_ans_3">Franz Kafka</string>
     <string name="question_6_ans_4">J. W. Goethe</string>
 
     <!--Quiz True/False answ-->
     <string name="true_answ">SPRÁVNĚ, \nindicie je tvoje!</string>
     <string name="false_answ">Zkus hledat dál.</string>
 
+    <!--End of layout-->
+    <string name="thanks">DĚKUJEME, že jste s námi vyrazili poznávat úchvatná místa a zákoutí města v srdci Evropy - kouzelné Prahy.</string>
 
-    <string name="cipher">VLTAVA \n je s délkou 430,2 km[1] nejdelší řeka v České republice. Na pražském toku Vltavy vzniklo osm ostrovů. Kromě Kampy je zejména Slovanský ostrov centrem společenského života. Od r. 1830 se tu v restauraci pořádají koncerty a bály. Koncertoval tu Fr. Liszt, H. Berlioz i P. I. Čajkovský. Bedřich Smetana v roce 1874 o Vltavě také složil slavnou symfonickou báseň z cyklu Má vlast. Vzpomenete si, z kolika pražských mostů můžete obdivovat její krásy a zákoutí? A pokud chcete zažít více, prohlédněte si Prahu prostřednictvím lodních výletů nebo si pronajměte malou lodičku.</string>
+    <!--ThanksMessage new page-->
+    <string name="title_activity_thanks_message">thanksMessage</string>
+    <string name="bravo">!BRAVO!</string>
+    <string name="cipher">Tajemná šifra zní <b>VLTAVA</b> a proto na břehu řeky Vltavy dnešní procházka Prahou končí.</string>
+    <string name="cipher2">VLTAVA je s délkou 430,2 km nejdelší řeka v České republice. Vzpomenete si, z kolika pražských mostů můžete obdivovat její krásy a zákoutí? A pokud chcete zažít více, prohlédněte si Prahu prostřednictvím lodních výletů nebo si v okolí Karlova mostu pronajměte malou lodičku.</string>
+    <string name="leave">Nashledanou, zase někdy příště!</string>
 
-    <string name="thanks">Děkujeme, že jste s námi vyrazili poznávat úchvatná místa a zákoutí města v srdci Evropy. Kouzelné Prahy.</string>
 
 </resources>
