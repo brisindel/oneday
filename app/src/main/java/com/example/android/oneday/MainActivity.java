@@ -19,7 +19,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-//import android.widget.ProgressBar;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -139,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     /**
-                     * Progressbar change on correct answer
+                     * Progressbar circle change on correct answer
 
 
                      new Thread(new Runnable() {
@@ -391,7 +390,7 @@ public class MainActivity extends AppCompatActivity {
         chkBoxQ6Ans4.setOnCheckedChangeListener(checkBoxListener);
 
         /**
-         * Show ThanksMessage page when game is finished
+         * Show ThanksMessage page when cipher has set text VLTAVA
          */
 
         letter1.addTextChangedListener(new TextWatcher()
@@ -421,9 +420,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-        /**
-         * ImageView question 1 map Intent Vaclavske namesti
-         */
+    /**
+     * ImageView question 1 map Intent Vaclavske namesti
+     */
 
     public void showMapQ1(View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW);

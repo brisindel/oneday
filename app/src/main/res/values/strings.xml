@@ -1,14 +1,14 @@
 <resources>
     <!--App name-->
-    <string name="app_name">Jeden den v Praze</string>
-    <string name="app_name2">poznejte Prahu, rozlouskněte šifru</string>
-    <string name="intro">Objevte krásy města sta věží, poznejte magickou atmosféru srdce Evropy. Každé místo vám také prozradí indicii k tajemné šifře.</string>
+    <string name="app_name">One day in Prague</string>
+    <string name="app_name2">discover Prague, solve a cipher</string>
+    <string name="intro">Discover the beauty of the city of 100 towers and magical athmosphere. Every place can give you a key for a secret cipher.</string>
 
-    <string name="user_name">napište své jméno</string>
-    <string name="start"><b>Dobrodružná cesta začíná!</b></string>
+    <string name="user_name">write your name</string>
+    <string name="start">Adventurous journey starts now!</string>
 
     //Title of
-    <string name="title">V jednom dni vás čeká</string>
+    <string name="title">In one day you can expect</string>
 
     //Fact 1
     <string name="fact_1">\u25CF Matka měst</string>
@@ -31,121 +31,121 @@
 
     <!--Question 1-->
     <!--Place 1-->
-    <string name="question_1_place">1. Václavské náměstí</string>
+    <string name="question_1_place">1. Wenceslas Square</string>
 
     <!--Description + must visit 1-->
-    <string name="question_1_description">Výlet začneme v pražském kulturním, společenském a obchodním centru.</string>
-    <string name="question_1_visit"><b>Navštivte:</b> Národní muzeum, pomník sv. Václava, palác Lucerna.</string>
+    <string name="question_1_description">The trip starts at Prague cultural, social and commercial center.</string>
+    <string name="question_1_visit"><b>Visit:</b> National Museum, St. Wenceslas Statue, Lucerna Palace.</string>
 
     <!--Quiz question 1-->
-    <string name="question_1">Indicie: Jaká jsou jména patronů České země na pomníku svatého Václava?</string>
-    <string name="question_1_ans_1">Václav, Anežka Česká, Jan Nepomucký</string>
-    <string name="question_1_ans_2">Václav, Cyril, Metoděj, Vít, Vojtěch</string>
-    <string name="question_1_ans_3">Václav, Petr, Pavel</string>
-    <string name="question_1_ans_4">Václav, Anežka Česká, Ludmila, Vojtěch, Prokop</string>
+    <string name="question_1">Key: What are the names of Czech patrons on the St. Wenceslas Statue?</string>
+    <string name="question_1_ans_1">Wenceslas, Agnes, John of Nepomuk</string>
+    <string name="question_1_ans_2">Wenceslas, Cyril, Methodius, Vitus, Adalbert</string>
+    <string name="question_1_ans_3">Wenceslas, Peter, Pavel</string>
+    <string name="question_1_ans_4">Ludmila, Agnes, Prokop, Adalbert</string>
     <!--Next stop 1-->
-    <string name="direction1">Ze spodní části Václavského náměstí pokračujte dolů ulicí Na Můstku k dalšímu místu.</string>
+    <string name="direction1">From the bottom part of Wenceslas Square go down through the street Na Můstku to the next point.</string>
 
     <!--Question 2-->
     <!--Place 2-->
-    <string name="question_2_place">2. Staroměstské náměstí</string>
+    <string name="question_2_place">2. Old Town Square</string>
 
     <!--Description + must visit 2-->
-    <string name="question_2_description">Historické jádro velkoměsta.</string>
-    <string name="question_2_visit"><b>Navštivte:</b> Staroměstskou radnici, Staroměstský orloj, Týnský chrám, kostel sv. Mikuláše, Palác Kinských i pomník Mistra Jana Husa.</string>
+    <string name="question_2_description">The historical center of Prague.</string>
+    <string name="question_2_visit"><b>Visit:</b>  Old-town town-hall, Astronomical Clock, Church of Our Lady before Týn, St. Nicholas\' Church, Kinský Palace, Jan Hus Memorial.</string>
 
     <!--Quiz question 2-->
-    <string name="question_2">Indicie: Jak často se v oknech orloje objevují pohybliví apoštolové?</string>
-    <string name="question_2_ans_1">Každou hodinu</string>
-    <string name="question_2_ans_2">Každý den v poledne</string>
-    <string name="question_2_ans_3">Každý den v 6, 12, 18 a 24 hodin</string>
-    <string name="question_2_ans_4">Pouze na Nový rok</string>
+    <string name="question_2">Key: How often can you see apostles in the windows of the Astronomical Clock?</string>
+    <string name="question_2_ans_1">Every hour</string>
+    <string name="question_2_ans_2">Every day at the noon</string>
+    <string name="question_2_ans_3">Every day at 6, 12, 18 and 24 hour</string>
+    <string name="question_2_ans_4">Only on New Year</string>
 
     <!--Next stop 2-->
-    <string name="direction2">Od orloje zamiřte k Malému náměstí a dále ulicí Karlova následujte směrovky k dalšímu cíli.</string>
+    <string name="direction2">From the Astronomical Clock go to the Malé  náměstí and then through the Karlova street and follow the directions to the next point.</string>
 
     <!--Question 3-->
     <!--Place 3-->
-    <string name="question_3_place">3. Karlův most</string>
+    <string name="question_3_place">3. Charles Bridge</string>
 
     <!--Description + must visit 3-->
-    <string name="question_3_description">Druhý nejstarší most v Čechách je roku 1357. Nejznámější z 30 pražských mostů s 30 úchvatnými sochami.</string>
-    <string name="question_3_visit"><b>Navštivte:</b> Staroměstskou mosteckou věž, Malostranskou mosteckou věž a prohlédněte si všechny sochy.</string>
+    <string name="question_3_description">The second oldest bridge in the Czech Republic from 1357. The most known among 30 Prague bridges with 30 amazing statues.</string>
+    <string name="question_3_visit"><b>Visit:</b> Old Town Bridge Tower, Lesser Town Bridge Towers and take a look at bridge statues.</string>
 
     <!--Quiz question 3-->
-    <string name="question_3">Indicie: Jaký je počet pilířů Karlova mostu?</string>
+    <string name="question_3">Key: How many pillars does Charles Bridge have?</string>
     <string name="question_3_ans_1">12</string>
     <string name="question_3_ans_2">13</string>
     <string name="question_3_ans_3">15</string>
     <string name="question_3_ans_4">16</string>
 
     <!--Next stop 3-->
-    <string name="direction3">Po pravé straně uvidíte náš další cíl - Pražský hrad. Následujte směrovky k následujícímu cíli.</string>
+    <string name="direction3">On the right side you can see the next point - Prague Castle. Follow the directiones to the next point.</string>
 
     <!--Question 4-->
     <!--Place 4-->
-    <string name="question_4_place">4. Pražský hrad</string>
+    <string name="question_4_place">4. Prague Castle</string>
 
     <!--Description + must visit 4-->
-    <string name="question_4_description">Největší starobylý hrad na světě s rozlohou 7,28 ha, který obývá prezident republiky.</string>
-    <string name="question_4_visit"><b>Navštivte:</b> Katedrálu svatého Víta, Starý královský palác, Zlatou uličku, Prašnou věž, zahrady a střídání hradní stráže v každou hodinu.</string>
+    <string name="question_4_description">The biggest old castle in the world with area of 7.28 ha, where the president resides.</string>
+    <string name="question_4_visit"><b>Visit:</b> St. Vitus Cathedral, Old Royal Palace, Golden Lane, Powder Tower, gardens and changing of the Castle Guards every hour.</string>
 
     <!--Quiz question 4-->
-    <string name="question_4">Indicie: Stavba katedrály svatého Víta byla zahájena v roce 1344. Ve kterém roce byla dokončena?</string>
+    <string name="question_4">Key: The construction of St. Vitus Cathedral started in 1344. When was it finished?</string>
     <string name="question_4_ans_1">1929</string>
     <string name="question_4_ans_2">1561</string>
     <string name="question_4_ans_3">1770</string>
     <string name="question_4_ans_4">1385</string>
 
     <!--Next stop 4-->
-    <string name="direction4">Vraťte se zpět ke Karlovu mostu a sestupte doprava na Kampu.</string>
+    <string name="direction4">Return to Charles Bridge and go down to the Kampa Island.</string>
 
     <!--Question 5-->
     <!--Place 5-->
-    <string name="question_5_place">5. Kampa</string>
+    <string name="question_5_place">5. Kampa Island</string>
 
     <!--Description + must visit 5-->
-    <string name="question_5_description">Pražské Benátky, druhý nejkrásnější městský ostrov světa.</string>
-    <string name="question_5_visit"><b>Navštivte:</b> Čertovku, Werichovu vilu, Sovovy mlýny, Babies.</string>
+    <string name="question_5_description">Prague Venice, the second most beautiful city island of the world.</string>
+    <string name="question_5_visit"><b>Visit:</b> Čertovka (Devil\'s Channel), Werich Villa, Sova\'s Mills (Museum Kampa), Babies.</string>
 
     <!--Quiz question 5-->
-    <string name="question_5">Indicie: Po které slavné osobnosti je pojmenovaná zeď nedaleko ostrova Kampa?</string>
+    <string name="question_5">Key: After which famous person is named a wall near to the Kampa Island?</string>
     <string name="question_5_ans_1">W. A. Mozart</string>
     <string name="question_5_ans_2">John Lennon</string>
-    <string name="question_5_ans_3">král Karel IV.</string>
+    <string name="question_5_ans_3">king Karel IV.</string>
     <string name="question_5_ans_4">Albert Einstein</string>
 
     <!--Next stop 5-->
-    <string name="direction5">Na konci ostrova přejděte most Legií k poslednímu místu.</string>
+    <string name="direction5">"At the end of the island go to Legie Bride to the last point. "</string>
 
     <!--Question 6-->
     <!--Place 6-->
-    <string name="question_6_place">6. Kavárna Slavia</string>
+    <string name="question_6_place">6. Slavia Café</string>
 
     <!--Description + must visit 6-->
-    <string name="question_6_description">Naše putování končí naproti Národnímu divadlu ve světoznámé kavárně, která vám prozradí poslední indicii k rozluštění šifry.</string>
-    <string name="question_6_visit"><b>Navštivte:</b> Dejte si šálek výtečné kávy se štrůdlem a z okna kavárny si připomeňte nádherná místa, která jste dnes navštívili.</string>
+    <string name="question_6_description">Our journey ends across from the National Theather in the well-known café, which will give you the last key to the cipher.</string>
+    <string name="question_6_visit"><b>Visit:</b> Have a cup of great coffee with strudel and from a window you can remember the beautiful places you have visited.</string>
 
     <!--Quiz question 6-->
-    <string name="question_6">Indicie: Které slavné osobnosti navštívily kavárnu Slavii?</string>
-    <string name="question_6_ans_1">prezident Václav Havel</string>
+    <string name="question_6">Key: Which famous people have visited Slavia Café?</string>
+    <string name="question_6_ans_1">president Václav Havel</string>
     <string name="question_6_ans_2">Hillary Clinton</string>
     <string name="question_6_ans_3">Franz Kafka</string>
     <string name="question_6_ans_4">J. W. Goethe</string>
 
     <!--Quiz True/False answ-->
-    <string name="true_answ">SPRÁVNĚ, \nindicie je tvoje!</string>
-    <string name="false_answ">Zkus hledat dál.</string>
+    <string name="true_answ">CORRECT, the key is yours!</string>
+    <string name="false_answ">Try it again.</string>
 
     <!--End of layout-->
-    <string name="thanks">DĚKUJEME, že jste s námi vyrazili poznávat úchvatná místa a zákoutí města v srdci Evropy - kouzelné Prahy.</string>
+    <string name="thanks"><b>THANK YOU</b>, that you went with us to discover these beautiful places in the heart of Europe - magical Prague.</string>
 
     <!--ThanksMessage new page-->
     <string name="title_activity_thanks_message">thanksMessage</string>
     <string name="bravo">!BRAVO!</string>
-    <string name="cipher">Tajemná šifra zní <b>VLTAVA</b> a proto na břehu řeky Vltavy dnešní procházka Prahou končí.</string>
-    <string name="cipher2">VLTAVA je s délkou 430,2 km nejdelší řeka v České republice. Vzpomenete si, z kolika pražských mostů můžete obdivovat její krásy a zákoutí? A pokud chcete zažít více, prohlédněte si Prahu prostřednictvím lodních výletů nebo si v okolí Karlova mostu pronajměte malou lodičku.</string>
-    <string name="leave">Nashledanou, zase někdy příště!</string>
+    <string name="cipher">The secret cipher is the <b>VLTAVA</b> and that is why our journey finishes right here.</string>
+    <string name="cipher2">The <b>VLTAVA</b>, with its length of 430.2 km, is the longest river in the Czech Republic. Can you remember from how many Prague bridges you can admire its beauty? If you like more, you can see Prague from steamboats or you can hire a small boat around Charles Bridge.</string>
+    <string name="leave">"See you next time! "</string>
 
 
 </resources>
