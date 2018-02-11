@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox chkBoxQ6Ans1, chkBoxQ6Ans2, chkBoxQ6Ans3, chkBoxQ6Ans4;
     private boolean gameStarted;
     private boolean letters;
+    private boolean alreadyExecuted1, alreadyExecuted2, alreadyExecuted3, alreadyExecuted4, alreadyExecuted5, alreadyExecuted6;
     private TextView letter1, letter2, letter3, letter4, letter5, letter6;
     private EditText userName;
     private ImageView mapQ1, mapQ2, mapQ3, mapQ4, mapQ5;
@@ -110,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_1);
         radioQ1Ans4 = (RadioButton) findViewById(R.id.radioQ1Ans4);
         textProgress = (TextView) findViewById(R.id.textProgress);
+
         //  progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -120,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radioQ1Ans4) {
+                if (checkedId == R.id.radioQ1Ans4 && !alreadyExecuted1) {
 
                     //Set textColor for true answer
                     radioQ1Ans4.setTextColor(getResources().getColor(R.color.colorGold));
@@ -135,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
+
+                    //Execute only onetime
+                    alreadyExecuted1 = true;
 
 
                     /**
@@ -185,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radioQ2Ans1) {
+                if (checkedId == R.id.radioQ2Ans1 && !alreadyExecuted2) {
 
                     //Set textColor for true answer
                     radioQ2Ans1.setTextColor(getResources().getColor(R.color.colorGold));
@@ -200,6 +205,9 @@ public class MainActivity extends AppCompatActivity {
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
+
+                    //Execute only onetime
+                    alreadyExecuted2 = true;
 
                 } else if (checkedId == R.id.radioQ2Ans2) {
 
@@ -226,9 +234,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+
                 // find which radio button is selected
 
-                if (checkedId == R.id.radioQ3Ans3) {
+                if (checkedId == R.id.radioQ3Ans3 && !alreadyExecuted3) {
                     //Set textColor for true answer
                     radioQ3Ans3.setTextColor(getResources().getColor(R.color.colorGold));
 
@@ -242,6 +251,9 @@ public class MainActivity extends AppCompatActivity {
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
+
+                    //Execute only onetime
+                    alreadyExecuted3 = true;
 
                 } else if (checkedId == R.id.radioQ3Ans1) {
 
@@ -270,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radioQ4Ans1) {
+                if (checkedId == R.id.radioQ4Ans1 && !alreadyExecuted4) {
                     //Set textColor for true answer
                     radioQ4Ans1.setTextColor(getResources().getColor(R.color.colorGold));
 
@@ -284,6 +296,9 @@ public class MainActivity extends AppCompatActivity {
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
+
+                    //Execute only onetime
+                    alreadyExecuted4 = true;
 
                 } else if (checkedId == R.id.radioQ4Ans2) {
 
@@ -310,9 +325,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+
                 // find which radio button is selected
 
-                if (checkedId == R.id.radioQ5Ans2) {
+                if (checkedId == R.id.radioQ5Ans2 && !alreadyExecuted5) {
 
                     //Set textColor for true answer
                     radioQ5Ans2.setTextColor(getResources().getColor(R.color.colorGold));
@@ -327,6 +343,9 @@ public class MainActivity extends AppCompatActivity {
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
+
+                    //Execute only onetime
+                    alreadyExecuted5 = true;
 
                 } else if (checkedId == R.id.radioQ5Ans2) {
 
@@ -358,7 +377,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // find which checkbox is selected
 
-                if (chkBoxQ6Ans1.isChecked() && (chkBoxQ6Ans2.isChecked() && chkBoxQ6Ans3.isChecked() && !chkBoxQ6Ans4.isChecked())) {
+                if (chkBoxQ6Ans1.isChecked() && chkBoxQ6Ans2.isChecked() && chkBoxQ6Ans3.isChecked()
+                        && !chkBoxQ6Ans4.isChecked() && !alreadyExecuted6) {
 
                     //Set textColor for true answer
                     chkBoxQ6Ans1.setTextColor(getResources().getColor(R.color.colorGold));
@@ -375,6 +395,9 @@ public class MainActivity extends AppCompatActivity {
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
+
+                    //Execute only onetime
+                    alreadyExecuted6 = true;
 
                 } else {
 
@@ -408,7 +431,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-                if (letter1.getText().toString().equals("V") && letter2.getText().toString().equals("L") && letter3.getText().toString().equals("T") && letter4.getText().toString().equals("A") && letter5.getText().toString().equals("V") && letter6.getText().toString().equals("A")) {
+                String letter1Text = letter1.getText().toString();
+                String letter2Text = letter2.getText().toString();
+                String letter3Text = letter3.getText().toString();
+                String letter4Text = letter4.getText().toString();
+                String letter5Text = letter5.getText().toString();
+                String letter6Text = letter6.getText().toString();
+
+                if (letter1Text.equals("V") && letter2Text.equals("L") && letter3Text.equals("T") && letter4Text.equals("A") && letter5Text.equals("V") && letter6Text.equals("A")) {
                     letters = true;
 
                     Intent i = new Intent(getApplicationContext(), ThanksPage.class);
