@@ -120,6 +120,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                // check if user fill his name and if not, set cipher to "*"
+                if (!gameStarted) {
+                    gameStarted = true;
+                    letter1.setText("*");
+                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter2.setText("*");
+                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter3.setText("*");
+                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter4.setText("*");
+                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter5.setText("*");
+                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter6.setText("*");
+                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
+                }
+
+                //Toast information if user name missed
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
+                        Toast.LENGTH_SHORT).show();
+                ;
+
+
                 // find which radio button is selected
 
                 if (checkedId == R.id.radioQ1Ans4 && !alreadyExecuted1) {
@@ -188,6 +211,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                // check if user fill his name and if not, set cipher to "*"
+                if (!gameStarted) {
+                    gameStarted = true;
+                    letter1.setText("*");
+                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter2.setText("*");
+                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter3.setText("*");
+                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter4.setText("*");
+                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter5.setText("*");
+                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter6.setText("*");
+                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
+                }
+
+                //Toast information if user name missed
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
+                        Toast.LENGTH_SHORT).show();
+                ;
+
                 // find which radio button is selected
 
                 if (checkedId == R.id.radioQ2Ans1 && !alreadyExecuted2) {
@@ -234,6 +279,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                // check if user fill his name and if not, set cipher to "*"
+                if (!gameStarted) {
+                    gameStarted = true;
+                    letter1.setText("*");
+                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter2.setText("*");
+                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter3.setText("*");
+                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter4.setText("*");
+                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter5.setText("*");
+                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter6.setText("*");
+                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
+                }
+
+                //Toast information if user name missed
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
+                        Toast.LENGTH_SHORT).show();
+                ;
 
                 // find which radio button is selected
 
@@ -279,6 +345,28 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                // check if user fill his name and if not, set cipher to "*"
+                if (!gameStarted) {
+                    gameStarted = true;
+                    letter1.setText("*");
+                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter2.setText("*");
+                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter3.setText("*");
+                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter4.setText("*");
+                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter5.setText("*");
+                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter6.setText("*");
+                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
+                }
+
+                //Toast information if user name missed
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
+                        Toast.LENGTH_SHORT).show();
+                ;
 
                 // find which radio button is selected
 
@@ -374,6 +462,28 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCheckedChanged(CompoundButton button, boolean isChecked) {
+
+                // check if user fill his name and if not, set cipher to "*"
+                if (!gameStarted) {
+                    gameStarted = true;
+                    letter1.setText("*");
+                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter2.setText("*");
+                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter3.setText("*");
+                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter4.setText("*");
+                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter5.setText("*");
+                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
+                    letter6.setText("*");
+                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
+                }
+
+                //Toast information if user name missed
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
+                        Toast.LENGTH_SHORT).show();
+                ;
 
                 // find which checkbox is selected
 
