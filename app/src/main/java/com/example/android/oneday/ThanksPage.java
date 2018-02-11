@@ -5,13 +5,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class ThanksPage extends AppCompatActivity {
+
+    //variables
+    private TextView solution;
+    public EditText userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thanks_page);
+
+        //Set salutation and text in first line below Vltava image
+        String solution1 = getResources().getString(R.string.cipher);
+        TextView solution = (TextView) findViewById(R.id.solution);
+
+        Intent intent = getIntent();
+        String userName = intent.getStringExtra("USER NAME");
+        solution.setText(userName + solution1);
+        solution.setTextColor(getResources().getColor(R.color.colorCipher));
 
         final Button button = findViewById(R.id.resetBtn);
         button.setOnClickListener(new View.OnClickListener() {

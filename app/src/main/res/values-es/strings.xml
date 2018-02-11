@@ -70,7 +70,8 @@
 <string name="thanks"><b>GRACIAS</b> por salir con nosotros a descubrir los lugares y rincones fascinantes de la ciudad en corazón de Europa - la Praga mágica.</string>
 <string name="title_activity_thanks_message">thanksMessage</string>
 <string name="bravo">¡BRAVO!</string>
-<string name="cipher">El código misterioso es <b>VLTAVA</b> (Moldau) y por eso este paseo por Praga termina en su orrilla.</string>
+<string name="cipher">el código misterioso es <b>VLTAVA</b> (Moldau) y por eso este paseo por Praga termina en su orrilla.</string>
 <string name="cipher2"><b>VLTAVA</b> es el río más largo de República Checa con sus 430,2 km. Sabe ¿desde cuántos puentes puede apreciar la belleza de Praga? Si quiere disfrutar más admira la ciudad de Praga desde el espejo de Vltava comprando un tour de barco o arrendando una lancha  o un barco de pedales en cercanía del Puente de Carlos .</string>
 <string name="leave">¡Hasta la próxima vez!</string>
+    <string name="miss_user_name">escriba su nombre</string>
 </resources>

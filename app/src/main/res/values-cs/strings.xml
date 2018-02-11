@@ -70,7 +70,8 @@
 	<string name="thanks"><b>DĚKUJEME</b>, že jste s námi vyrazili poznávat úchvatná místa a zákoutí města v srdci Evropy - kouzelné Prahy.</string>
 	<string name="title_activity_thanks_message">thanksMessage</string>
 	<string name="bravo">!BRAVO!</string>
-	<string name="cipher">Tajemná šifra zní <b>VLTAVA</b> a proto na břehu řeky Vltavy dnešní procházka Prahou končí.</string>
+	<string name="cipher">tajemná šifra zní <b>VLTAVA</b> a proto na břehu řeky Vltavy dnešní procházka Prahou končí.</string>
 	<string name="cipher2"><b>VLTAVA</b> je s délkou 430,2 km nejdelší řeka v České republice. Vzpomenete si, z kolika pražských mostů můžete obdivovat její krásy a zákoutí? A pokud chcete zažít více, prohlédněte si Prahu prostřednictvím lodních výletů nebo si v okolí Karlova mostu pronajměte malou lodičku.</string>
 	<string name="leave">Nashledanou, zase někdy příště!</string>
+    <string name="miss_user_name">Nahoře doplňte své jméno</string>
 </resources>

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean letters;
     private boolean alreadyExecuted1, alreadyExecuted2, alreadyExecuted3, alreadyExecuted4, alreadyExecuted5, alreadyExecuted6;
     private TextView letter1, letter2, letter3, letter4, letter5, letter6;
-    private EditText userName;
+    public EditText userName;
     private ImageView mapQ1, mapQ2, mapQ3, mapQ4, mapQ5;
     private int progressStatus = 1;
     private TextView textProgress;
@@ -150,7 +150,8 @@ public class MainActivity extends AppCompatActivity {
                     radioQ1Ans4.setTextColor(getResources().getColor(R.color.colorGold));
 
                     //Toast information
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
+                    String userName1 = userName.getText().toString();
+                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
 
                     //Set letter to cipher
@@ -239,7 +240,8 @@ public class MainActivity extends AppCompatActivity {
                     radioQ2Ans1.setTextColor(getResources().getColor(R.color.colorGold));
 
                     //Toast information
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
+                    String userName1 = userName.getText().toString();
+                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
 
                     //Set letter to cipher
@@ -306,7 +308,8 @@ public class MainActivity extends AppCompatActivity {
                     radioQ3Ans3.setTextColor(getResources().getColor(R.color.colorGold));
 
                     //Toast information
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
+                    String userName1 = userName.getText().toString();
+                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
 
                     //Set letter to cipher
@@ -372,7 +375,8 @@ public class MainActivity extends AppCompatActivity {
                     radioQ4Ans1.setTextColor(getResources().getColor(R.color.colorGold));
 
                     //Toast information
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
+                    String userName1 = userName.getText().toString();
+                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
 
                     //Set letter to cipher
@@ -440,7 +444,8 @@ public class MainActivity extends AppCompatActivity {
                     radioQ5Ans2.setTextColor(getResources().getColor(R.color.colorGold));
 
                     //Toast information
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
+                    String userName1 = userName.getText().toString();
+                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
 
                     //Set letter to cipher
@@ -513,7 +518,8 @@ public class MainActivity extends AppCompatActivity {
                     chkBoxQ6Ans3.setTextColor(getResources().getColor(R.color.colorGold));
 
                     //Toast information
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.true_answ),
+                    String userName1 = userName.getText().toString();
+                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
                             Toast.LENGTH_SHORT).show();
 
                     //Set letter to cipher
@@ -670,6 +676,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.dispatchTouchEvent(event);
+    }
+
+    public void takeUserName (View view) {
+        EditText userName = (EditText) findViewById(R.id.user_name);
+        Intent intent = new Intent(this, ThanksPage.class);
+        intent.putExtra("USER NAME", userName.getText().toString());
+        startActivity(intent);
     }
 
 }

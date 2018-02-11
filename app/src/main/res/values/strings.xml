@@ -144,7 +144,7 @@
     <!--ThanksMessage new page-->
     <string name="title_activity_thanks_message">thanksMessage</string>
     <string name="bravo">!BRAVO!</string>
-    <string name="cipher">The secret cipher is the <b>VLTAVA</b> and that is why our journey finishes right here.</string>
+    <string name="cipher">the secret cipher is the <b>VLTAVA</b> and that is why our journey finishes right here.</string>
     <string name="cipher2">The <b>VLTAVA</b>, with its length of 430.2 km, is the longest river in the Czech Republic. Can you remember from how many Prague bridges you can admire its beauty? If you like more, you can see Prague from steamboats or you can hire a small boat around Charles Bridge.</string>
     <string name="leave">"See you next time! "</string>
 
