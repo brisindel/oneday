@@ -2,16 +2,13 @@ package com.example.android.oneday;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.net.Uri;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -19,16 +16,16 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.os.Handler;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
 
     //Variables corresponding to the views.
     private RadioGroup radioGroup;
@@ -40,36 +37,56 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox chkBoxQ6Ans1, chkBoxQ6Ans2, chkBoxQ6Ans3, chkBoxQ6Ans4;
     private boolean gameStarted;
     private boolean letters;
-    private boolean alreadyExecuted1, alreadyExecuted2, alreadyExecuted3, alreadyExecuted4, alreadyExecuted5, alreadyExecuted6;
-    private TextView letter1, letter2, letter3, letter4, letter5, letter6;
+    private List<Boolean> executedList = new ArrayList<>();
+    private boolean check;
+    private List<TextView> letterList = new ArrayList<>();
     public EditText userName;
-    private ImageView mapQ1, mapQ2, mapQ3, mapQ4, mapQ5;
+    private ImageView mapQ1, mapQ2, mapQ3, mapQ4, mapQ5, mapQ6;
     private int progressStatus = 1;
     private TextView textProgress;
-    //  private ProgressBar progressBar;
-    // private Handler handler = new Handler();
+    private Resources resources;
 
-
-    /**
-     * If user set username in editText, cipher is set to default - "*****"
-     */
+    //Localisation of quiz places
+    private static final double VACLAVAK_LAT = 50.0797778;
+    private static final double VACLAVAK_LONG = 14.4297314;
+    private static final double STAROMAK_LAT = 50.0869922;
+    private static final double STAROMAK_LONG = 14.4207228;
+    private static final double KARLUV_MOST_LAT = 50.0865831;
+    private static final double KARLUV_MOST_LONG = 14.4102561;
+    private static final double HRAD_LAT = 50.0898689;
+    private static final double HRAD_LONG = 14.4000936;
+    private static final double KAMPA_LAT = 50.0862247;
+    private static final double KAMPA_LONG = 14.4067961;
+    private static final double SLAVIA_LAT = 50.0815244;
+    private static final double SLAVIA_LONG = 14.4134222;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        resources = getResources();
 
-        letter1 = findViewById(R.id.letter1);
-        letter2 = findViewById(R.id.letter2);
-        letter3 = findViewById(R.id.letter3);
-        letter4 = findViewById(R.id.letter4);
-        letter5 = findViewById(R.id.letter5);
-        letter6 = findViewById(R.id.letter6);
+        letterList.add((TextView) findViewById(R.id.letter1));
+        letterList.add((TextView) findViewById(R.id.letter2));
+        letterList.add((TextView) findViewById(R.id.letter3));
+        letterList.add((TextView) findViewById(R.id.letter4));
+        letterList.add((TextView) findViewById(R.id.letter5));
+        letterList.add((TextView) findViewById(R.id.letter6));
+
+        executedList.add(false);
+        executedList.add(false);
+        executedList.add(false);
+        executedList.add(false);
+        executedList.add(false);
+        executedList.add(false);
+
         userName = findViewById(R.id.user_name);
         gameStarted = false;
         letters = false;
 
-
+        /**
+         * If user set username in editText, cipher is set to default - "*****"
+         */
         userName.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -77,192 +94,154 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 if (!gameStarted) {
                     gameStarted = true;
-                    letter1.setText("*");
-                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter2.setText("*");
-                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter3.setText("*");
-                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter4.setText("*");
-                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter5.setText("*");
-                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter6.setText("*");
-                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
 
-
+                    for (TextView letter : letterList) {
+                        letter.setText("*");
+                        letter.setTextColor(getResources().getColor(R.color.colorGold));
+                    }
                 }
             }
-
         });
 
+        /**
+         * Places on map - VACLAVAK, STAROMAK, KARLŮV MOST, HRAD, KAMPA, SLAVIA
+         */
+        ImageView mapQ1 = findViewById(R.id.mapQ1);
+        mapQ1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMap(v, VACLAVAK_LAT, VACLAVAK_LONG, R.string.question_1_place);
+            }
+        });
+        ImageView mapQ2 = findViewById(R.id.mapQ2);
+        mapQ2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMap(v, STAROMAK_LAT, STAROMAK_LONG, R.string.question_2_place);
+            }
+        });
+        ImageView mapQ3 = findViewById(R.id.mapQ3);
+        mapQ3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMap(v, KARLUV_MOST_LAT, KARLUV_MOST_LONG, R.string.question_3_place);
+            }
+        });
+        ImageView mapQ4 = findViewById(R.id.mapQ4);
+        mapQ4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMap(v, HRAD_LAT, HRAD_LONG, R.string.question_4_place);
+            }
+        });
+        ImageView mapQ5 = findViewById(R.id.mapQ5);
+        mapQ5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMap(v, KAMPA_LAT, KAMPA_LONG, R.string.question_5_place);
+            }
+        });
+        ImageView mapQ6 = findViewById(R.id.mapQ6);
+        mapQ6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMap(v, SLAVIA_LAT, SLAVIA_LONG, R.string.question_6_place);
+            }
+        });
 
         /**
          * Question 1 - Toast message which answer is correct (4th answer is correct)
          */
-
         radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_1);
         radioQ1Ans4 = (RadioButton) findViewById(R.id.radioQ1Ans4);
         textProgress = (TextView) findViewById(R.id.textProgress);
-
-        //  progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 // check if user fill his name and if not, set cipher to "*"
-                if (!gameStarted) {
-                    gameStarted = true;
-                    letter1.setText("*");
-                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter2.setText("*");
-                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter3.setText("*");
-                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter4.setText("*");
-                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter5.setText("*");
-                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter6.setText("*");
-                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
-
-                //Toast information if user name missed
-                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
-                        Toast.LENGTH_SHORT).show();
-                };
-
+                startTheGame(letterList);
 
                 // find which radio button is selected
-
-                if (checkedId == R.id.radioQ1Ans4 && !alreadyExecuted1) {
+                if (checkedId == R.id.radioQ1Ans4 && !executedList.get(0)) {
 
                     //Set textColor for true answer
                     radioQ1Ans4.setTextColor(getResources().getColor(R.color.colorGold));
 
-                    //Toast information
-                    String userName1 = userName.getText().toString();
-                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast message correct answer
+                    showCorrectAnswToast();
 
                     //Set letter to cipher
-                    letter2.setText("L");
-                    letter2.setTextColor(getResources().getColor(R.color.colorCipher));
+                    letterList.get(1).setText("L");
+                    letterList.get(1).setTextColor(getResources().getColor(R.color.colorCipher));
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
 
-                    //Execute only onetime
-                    alreadyExecuted1 = true;
+                    // Mark the question as executed
+                    executedList.set(0, true);
 
-
-                    /**
-                     * Progressbar circle change on correct answer
-
-
-                     new Thread(new Runnable() {
-                    @Override public void run() {
-                    while (progressStatus <= 0) {
-                    handler.post(new Runnable() {
-                    @Override public void run() {
-                    progressBar.setProgress(progressStatus);
-                    textProgress.setText(progressStatus + "/6");
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
                     }
-                    });
-                    progressStatus++;
-                    }
-                    }
-                    }).start();
-                     */
-
-
-                } else if (checkedId == R.id.radioQ1Ans1) {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
-
                 } else {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
+                    // Toast message wrong answer
+                    showFalseAnswToast();
                 }
             }
         });
 
-
         /**
          * Question 2 - Toast message which answer is correct (1st answer is correct)
          */
-
         radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_2);
         radioQ2Ans1 = (RadioButton) findViewById(R.id.radioQ2Ans1);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 // check if user fill his name and if not, set cipher to "*"
-                if (!gameStarted) {
-                    gameStarted = true;
-                    letter1.setText("*");
-                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter2.setText("*");
-                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter3.setText("*");
-                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter4.setText("*");
-                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter5.setText("*");
-                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter6.setText("*");
-                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
-
-                //Toast information if user name missed
-                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
-                        Toast.LENGTH_SHORT).show();
-                };
+                startTheGame(letterList);
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radioQ2Ans1 && !alreadyExecuted2) {
+                if (checkedId == R.id.radioQ2Ans1 && !executedList.get(1)) {
 
                     //Set textColor for true answer
                     radioQ2Ans1.setTextColor(getResources().getColor(R.color.colorGold));
 
-                    //Toast information
-                    String userName1 = userName.getText().toString();
-                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast message correct answer
+                    showCorrectAnswToast();
 
                     //Set letter to cipher
-                    letter5.setText("V");
-                    letter5.setTextColor(getResources().getColor(R.color.colorCipher));
+                    letterList.get(4).setText("V");
+                    letterList.get(4).setTextColor(getResources().getColor(R.color.colorCipher));
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
 
-                    //Execute only onetime
-                    alreadyExecuted2 = true;
+                    // Mark the question as executed
+                    executedList.set(1, true);
 
-                } else if (checkedId == R.id.radioQ2Ans2) {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
+                    }
 
                 } else {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
+                    // Toast message wrong answer
+                    showFalseAnswToast();
                 }
             }
         });
@@ -270,65 +249,42 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Question 3 - Toast message which answer is correct (3rd answer is correct)
          */
-
         radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_3);
         radioQ3Ans3 = (RadioButton) findViewById(R.id.radioQ3Ans3);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 // check if user fill his name and if not, set cipher to "*"
-                if (!gameStarted) {
-                    gameStarted = true;
-                    letter1.setText("*");
-                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter2.setText("*");
-                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter3.setText("*");
-                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter4.setText("*");
-                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter5.setText("*");
-                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter6.setText("*");
-                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
-
-
-                //Toast information if user name missed
-                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
-                        Toast.LENGTH_SHORT).show();
-                };
+                startTheGame(letterList);
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radioQ3Ans3 && !alreadyExecuted3) {
+                if (checkedId == R.id.radioQ3Ans3 && !executedList.get(2)) {
                     //Set textColor for true answer
                     radioQ3Ans3.setTextColor(getResources().getColor(R.color.colorGold));
 
-                    //Toast information
-                    String userName1 = userName.getText().toString();
-                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast information correct answer
+                    showCorrectAnswToast();
 
                     //Set letter to cipher
-                    letter4.setText("A");
-                    letter4.setTextColor(getResources().getColor(R.color.colorCipher));
+                    letterList.get(3).setText("A");
+                    letterList.get(3).setTextColor(getResources().getColor(R.color.colorCipher));
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
 
-                    //Execute only onetime
-                    alreadyExecuted3 = true;
+                    // Mark the question as executed
+                    executedList.set(2, true);
 
-                } else if (checkedId == R.id.radioQ3Ans1) {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
+                    }
 
                 } else {
-
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                             Toast.LENGTH_SHORT).show();
                 }
@@ -338,66 +294,44 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Question 4 - Toast message which answer is correct (first answer is correct)
          */
-
         radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_4);
         radioQ4Ans1 = (RadioButton) findViewById(R.id.radioQ4Ans1);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 // check if user fill his name and if not, set cipher to "*"
-                if (!gameStarted) {
-                    gameStarted = true;
-                    letter1.setText("*");
-                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter2.setText("*");
-                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter3.setText("*");
-                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter4.setText("*");
-                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter5.setText("*");
-                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter6.setText("*");
-                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
-
-                //Toast information if user name missed
-                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
-                        Toast.LENGTH_SHORT).show();
-                };
+                startTheGame(letterList);
 
                 // find which radio button is selected
 
-                if (checkedId == R.id.radioQ4Ans1 && !alreadyExecuted4) {
+                if (checkedId == R.id.radioQ4Ans1 && !executedList.get(3)) {
                     //Set textColor for true answer
                     radioQ4Ans1.setTextColor(getResources().getColor(R.color.colorGold));
 
-                    //Toast information
-                    String userName1 = userName.getText().toString();
-                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast message correct answer
+                    showCorrectAnswToast();
 
                     //Set letter to cipher
-                    letter6.setText("A");
-                    letter6.setTextColor(getResources().getColor(R.color.colorCipher));
+                    letterList.get(5).setText("A");
+                    letterList.get(5).setTextColor(getResources().getColor(R.color.colorCipher));
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
 
-                    //Execute only onetime
-                    alreadyExecuted4 = true;
+                    // Mark the question as executed
+                    executedList.set(3, true);
 
-                } else if (checkedId == R.id.radioQ4Ans2) {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
+                    }
 
                 } else {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast message wrong answer
+                    showFalseAnswToast();
                 }
             }
         });
@@ -405,77 +339,50 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Question 5 - Toast message which answer is correct (2nd answer is correct)
          */
-
         radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_5);
         radioQ5Ans2 = (RadioButton) findViewById(R.id.radioQ5Ans2);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 // check if user fill his name and if not, set cipher to "*"
-                if (!gameStarted) {
-                    gameStarted = true;
-                    letter1.setText("*");
-                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter2.setText("*");
-                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter3.setText("*");
-                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter4.setText("*");
-                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter5.setText("*");
-                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter6.setText("*");
-                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
-
-                    //Toast information if user name missed
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
-                            Toast.LENGTH_SHORT).show();
-                };
-
+                startTheGame(letterList);
 
                 // find which radio button is selected
-
-                if (checkedId == R.id.radioQ5Ans2 && !alreadyExecuted5) {
+                if (checkedId == R.id.radioQ5Ans2 && !executedList.get(4)) {
 
                     //Set textColor for true answer
                     radioQ5Ans2.setTextColor(getResources().getColor(R.color.colorGold));
 
-                    //Toast information
-                    String userName1 = userName.getText().toString();
-                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast message correct answer
+                    showCorrectAnswToast();
 
                     //Set letter to cipher
-                    letter3.setText("T");
-                    letter3.setTextColor(getResources().getColor(R.color.colorCipher));
+                    letterList.get(2).setText("T");
+                    letterList.get(2).setTextColor(getResources().getColor(R.color.colorCipher));
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
 
-                    //Execute only onetime
-                    alreadyExecuted5 = true;
+                    // Mark the question as executed
+                    executedList.set(4, true);
 
-                } else if (checkedId == R.id.radioQ5Ans2) {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
-
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
+                    }
                 } else {
-
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast message wrong answer
+                    showFalseAnswToast();
                 }
             }
         });
 
-
         /**
          * Question 6 - Toast message which answer is correct (first 3 answers are correct)
          */
-
         chkBoxQ6Ans1 = findViewById(R.id.chkBoxQ6Ans1);
         chkBoxQ6Ans2 = findViewById(R.id.chkBoxQ6Ans2);
         chkBoxQ6Ans3 = findViewById(R.id.chkBoxQ6Ans3);
@@ -487,55 +394,41 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton button, boolean isChecked) {
 
                 // check if user fill his name and if not, set cipher to "*"
-                if (!gameStarted) {
-                    gameStarted = true;
-                    letter1.setText("*");
-                    letter1.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter2.setText("*");
-                    letter2.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter3.setText("*");
-                    letter3.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter4.setText("*");
-                    letter4.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter5.setText("*");
-                    letter5.setTextColor(getResources().getColor(R.color.colorGold));
-                    letter6.setText("*");
-                    letter6.setTextColor(getResources().getColor(R.color.colorGold));
-
-                //Toast information if user name missed
-                Toast.makeText(getApplicationContext(), getResources().getString(R.string.miss_user_name),
-                        Toast.LENGTH_SHORT).show();
-                };
+                startTheGame(letterList);
 
                 // find which checkbox is selected
 
                 if (chkBoxQ6Ans1.isChecked() && chkBoxQ6Ans2.isChecked() && chkBoxQ6Ans3.isChecked()
-                        && !chkBoxQ6Ans4.isChecked() && !alreadyExecuted6) {
+                        && !chkBoxQ6Ans4.isChecked() && !executedList.get(5)) {
 
                     //Set textColor for true answer
                     chkBoxQ6Ans1.setTextColor(getResources().getColor(R.color.colorGold));
                     chkBoxQ6Ans2.setTextColor(getResources().getColor(R.color.colorGold));
                     chkBoxQ6Ans3.setTextColor(getResources().getColor(R.color.colorGold));
 
-                    //Toast information
-                    String userName1 = userName.getText().toString();
-                    Toast.makeText(getApplicationContext(), userName1 + ", " + getResources().getString(R.string.true_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast message show correct answer
+                    showCorrectAnswToast();
 
                     //Set letter to cipher
-                    letter1.setText("V");
-                    letter1.setTextColor(getResources().getColor(R.color.colorCipher));
+                    letterList.get(0).setText("V");
+                    letterList.get(0).setTextColor(getResources().getColor(R.color.colorCipher));
 
                     //Get progress count of finished questions
                     textProgress.setText(progressStatus++ + "/6");
 
-                    //Execute only onetime
-                    alreadyExecuted6 = true;
+                    // Mark the question as executed
+                    executedList.set(5, true);
+
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
+                    }
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast message wrong answer
+                    showFalseAnswToast();
                 }
             }
         };
@@ -544,123 +437,39 @@ public class MainActivity extends AppCompatActivity {
         chkBoxQ6Ans2.setOnCheckedChangeListener(checkBoxListener);
         chkBoxQ6Ans3.setOnCheckedChangeListener(checkBoxListener);
         chkBoxQ6Ans4.setOnCheckedChangeListener(checkBoxListener);
+    }
 
-        /**
-         * Show ThanksMessage page when cipher has set text VLTAVA
-         */
-
-        letter1.addTextChangedListener(new TextWatcher()
-
-        {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+    /**
+     * Already executed - do only one time (add +1 correct question)
+     */
+    private boolean areAllAnswersCorrect() {
+        for (Boolean check : executedList) {
+            if (!check) {
+                return false;
             }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                String letter1Text = letter1.getText().toString();
-                String letter2Text = letter2.getText().toString();
-                String letter3Text = letter3.getText().toString();
-                String letter4Text = letter4.getText().toString();
-                String letter5Text = letter5.getText().toString();
-                String letter6Text = letter6.getText().toString();
-
-                if (letter1Text.equals("V") && letter2Text.equals("L") && letter3Text.equals("T") && letter4Text.equals("A") && letter5Text.equals("V") && letter6Text.equals("A")) {
-                    letters = true;
-
-                    Intent i = new Intent(getApplicationContext(), ThanksPage.class);
-                    startActivity(i);
-
-                }
-            }
-        });
+        }
+        return true;
     }
 
-
     /**
-     * ImageView question 1 map Intent Vaclavske namesti
+     * Show place on map
      */
-
-    public void showMapQ1(View view) {
+    private void showMap(View view, double lat, double lon, int place) {
+        String uri = buildUri(lat, lon, place);
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("geo:<" + 50.0797778 + ">,<" + 14.4297314 + ">?q=<" + 50.0797778 + ">,<" + 14.4297314 + ">(" + getResources().getString(R.string.question_1_place) + ")"));
+        intent.setData(Uri.parse(uri));
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
     }
 
-
-    /**
-     * ImageView question 2 map Intent Staromestske namesti
-     */
-
-    public void showMapQ2(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("geo:<" + 50.0869922 + ">,<" + 14.4207228 + ">?q=<" + 50.0869922 + ">,<" + 14.4207228 + ">(" + getResources().getString(R.string.question_2_place) + ")"));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
+    private String buildUri(double latitude, double longitude, int placeResource) {
+        return String.format("geo:<%f>,<%f>?q=<%f>,<%f>(%s)", latitude, longitude, latitude, longitude, resources.getString(placeResource));
     }
-
-    /**
-     * ImageView question 3 map Intent Karluv most
-     */
-
-    public void showMapQ3(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("geo:<" + 50.0865831 + ">,<" + 14.4102561 + ">?q=<" + 50.0865831 + ">,<" + 14.4102561 + ">(" + getResources().getString(R.string.question_3_place) + ")"));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-
-    /**
-     * ImageView question 4 map Intent Prazsky hrad
-     */
-
-    public void showMapQ4(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("geo:<" + 50.0898689 + ">,<" + 14.4000936 + ">?q=<" + 50.0898689 + ">,<" + 14.4000936 + ">(" + getResources().getString(R.string.question_4_place) + ")"));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-
-    /**
-     * ImageView question 5 map Intent Kampa
-     */
-
-    public void showMapQ5(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("geo:<" + 50.0862247 + ">,<" + 14.4067961 + ">?q=<" + 50.0862247 + ">,<" + 14.4067961 + ">(" + getResources().getString(R.string.question_5_place) + ")"));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-
-    /**
-     * ImageView question 6 map Intent Kavarna Slavia
-     */
-
-    public void showMapQ6(View view) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("geo:<" + 50.0815244 + ">,<" + 14.4134222 + ">?q=<" + 50.0815244 + ">,<" + 14.4134222 + ">(" + getResources().getString(R.string.question_6_place) + ")"));
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
-    }
-
 
     /**
      * Hide soft keyboard after click outside EditText
      */
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -678,11 +487,41 @@ public class MainActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(event);
     }
 
-    public void takeUserName (View view) {
+    /**
+     * Save userName and open Thanks Page
+     */
+    public void openThanksPage() {
         EditText userName = (EditText) findViewById(R.id.user_name);
         Intent intent = new Intent(this, ThanksPage.class);
-        intent.putExtra("USER NAME", userName.getText().toString());
+        String name = userName.getText().toString();
+        intent.putExtra("USER_NAME", name);
         startActivity(intent);
     }
 
+    public void showCorrectAnswToast() {
+        String userName1 = userName.getText().toString();
+        Toast.makeText(getApplicationContext(), userName1 + " " + getResources().getString(R.string.true_answ),
+                Toast.LENGTH_SHORT).show();
+    }
+
+    private void showFalseAnswToast() {
+        Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
+                Toast.LENGTH_SHORT).show();
+    }
+
+    private void startTheGame(List<TextView> letterList) {
+        if (!gameStarted) {
+            gameStarted = true;
+
+            //Toast information if user name missed
+            Toast.makeText(getApplicationContext(), resources.getString(R.string.miss_user_name),
+                    Toast.LENGTH_SHORT).show();
+
+            //Set "*" on cipher
+            for (TextView letter : letterList) {
+                letter.setText("*");
+                letter.setTextColor(getResources().getColor(R.color.colorGold));
+            }
+        }
+    }
 }

@@ -7,27 +7,21 @@
     <string name="user_name">write your name</string>
     <string name="start">Adventurous journey starts now!</string>
 
-    //Title of
-    <string name="title">In one day you can expect</string>
+    <!--Cipher hint-->
+    <string name="let1">P</string>
+    <string name="let2">R</string>
+    <string name="let3">A</string>
+    <string name="let4">G</string>
+    <string name="let5">U</string>
+    <string name="let6">E</string>
 
-    //Fact 1
-    <string name="fact_1">\u25CF Matka měst</string>
-
-    //Fact 2
-    <string name="fact_2">\u25CF Město sto věží</string>
-
-    //Fact 3
-    <string name="fact_3">\u25CF Magická atmosféra</string>
-
-    //Fact 4
-    <string name="fact_4">\u25CF Srdce Evropy</string>
-
-    //Fact 5
-    <string name="fact_5">\u25CF Největší hrad</string>
-
-    //Fact 6
-    <string name="fact_6">\u25CF Nejlepší pivo</string>
-
+    <!--Cipher -->
+    <string name="cilet1">V</string>
+    <string name="cilet2">L</string>
+    <string name="cilet3">T</string>
+    <string name="cilet4">A</string>
+    <string name="cilet5">V</string>
+    <string name="cilet6">A</string>
 
     <!--Question 1-->
     <!--Place 1-->
@@ -123,7 +117,7 @@
     <string name="question_6_place">6. Slavia Café</string>
 
     <!--Description + must visit 6-->
-    <string name="question_6_description">Our journey ends across from the National Theather in the well-known café, which will give you the last key to the cipher.</string>
+    <string name="question_6_description">Our journey ends across from the National Theater in the well-known café, which will give you the last key to the cipher.</string>
     <string name="question_6_visit"><b>Visit:</b> Have a cup of great coffee with strudel and from a window you can remember the beautiful places you have visited.</string>
 
     <!--Quiz question 6-->
@@ -147,6 +141,4 @@
     <string name="cipher">the secret cipher is the <b>VLTAVA</b> and that is why our journey finishes right here.</string>
     <string name="cipher2">The <b>VLTAVA</b>, with its length of 430.2 km, is the longest river in the Czech Republic. Can you remember from how many Prague bridges you can admire its beauty? If you like more, you can see Prague from steamboats or you can hire a small boat around Charles Bridge.</string>
     <string name="leave">"See you next time! "</string>
-
-
 </resources>

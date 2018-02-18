@@ -21,13 +21,13 @@ public class ThanksPage extends AppCompatActivity {
 
         //Set salutation and text in first line below Vltava image
         String solution1 = getResources().getString(R.string.cipher);
-        TextView solution = (TextView) findViewById(R.id.solution);
+        TextView solution = findViewById(R.id.solutionTextView);
 
         Intent intent = getIntent();
-        String userName = intent.getStringExtra("USER NAME");
-        solution.setText(userName + solution1);
-        solution.setTextColor(getResources().getColor(R.color.colorCipher));
+        String userName = intent.getStringExtra("USER_NAME");
+        solution.setText(userName + " " + solution1);
 
+        //Finish game, get back on start
         final Button button = findViewById(R.id.resetBtn);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -36,7 +36,6 @@ public class ThanksPage extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
 
     }
 }

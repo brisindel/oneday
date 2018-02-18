@@ -17,6 +17,9 @@
         <item name="fontFamily">@font/abeezee</item>
         <item name="android:textColorHint">@color/colorCipher</item>
         <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
     <!--  main title text style-->
@@ -27,6 +30,8 @@
         <item name="fontFamily">@font/abeezee</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorCipher</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <!--  subtitle text style-->
@@ -57,6 +62,11 @@
         <item name="android:textStyle">bold</item>
         <item name="android:padding">8dp</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:lineSpacingExtra">4sp</item>
     </style>
 
     <!--  question Title text style-->
@@ -68,6 +78,7 @@
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
     </style>
 
     <!--  question text style-->
@@ -77,6 +88,8 @@
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <!--  question text style-->
@@ -88,28 +101,32 @@
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
         <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
-
     <!--  radiogroup style -->
-    <style name="radioGroupStyle">
+    <style name="radioGroupStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/abeezee</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
     <!--  checkbox style -->
-    <style name="checkBoxStyle">
+    <style name="checkBoxStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/abeezee</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
         <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
-
 
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

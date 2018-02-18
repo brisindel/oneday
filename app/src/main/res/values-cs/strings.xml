@@ -74,4 +74,15 @@
 	<string name="cipher2"><b>VLTAVA</b> je s délkou 430,2 km nejdelší řeka v České republice. Vzpomenete si, z kolika pražských mostů můžete obdivovat její krásy a zákoutí? A pokud chcete zažít více, prohlédněte si Prahu prostřednictvím lodních výletů nebo si v okolí Karlova mostu pronajměte malou lodičku.</string>
 	<string name="leave">Nashledanou, zase někdy příště!</string>
     <string name="miss_user_name">Nahoře doplňte své jméno</string>
+    <string name="let2">R</string>
+	<string name="let1">P</string>
+	<string name="let3">A</string>
+	<string name="let4">G</string>
+	<string name="let5">U</string>
+	<string name="let6">E</string>
+    <string name="cilet1">V</string>
+	<string name="cilet2">L</string>
+	<string name="cilet3">T</string>
+	<string name="cilet5">V</string>
+	<string name="cilet6">A</string>
 </resources>
