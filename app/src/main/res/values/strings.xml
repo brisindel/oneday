@@ -5,6 +5,7 @@
     <string name="intro">Discover the beauty of the city of 100 towers and magical athmosphere. Every place can give you a key for a secret cipher.</string>
 
     <string name="user_name">write your name</string>
+    <string name="edt_answ">write your answer</string>
     <string name="start">Adventurous journey starts now!</string>
 
     <!--Cipher hint-->
