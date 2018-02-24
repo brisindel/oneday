@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radioQ1Ans4;
     private RadioButton radioQ2Ans1;
-    private RadioButton radioQ3Ans3;
+    //    private RadioButton radioQ3Ans3;
     private RadioButton radioQ4Ans1;
     private RadioButton radioQ5Ans2;
     private CheckBox chkBoxQ6Ans1, chkBoxQ6Ans2, chkBoxQ6Ans3, chkBoxQ6Ans4;
@@ -157,9 +157,9 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Question 1 - Toast message which answer is correct (4th answer is correct)
          */
-        radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_1);
-        radioQ1Ans4 = (RadioButton) findViewById(R.id.radioQ1Ans4);
-        textProgress = (TextView) findViewById(R.id.textProgress);
+        radioGroup = findViewById(R.id.radioQuestion_1);
+        radioQ1Ans4 = findViewById(R.id.radioQ1Ans4);
+        textProgress = findViewById(R.id.textProgress);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
             @Override
@@ -202,8 +202,8 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Question 2 - Toast message which answer is correct (1st answer is correct)
          */
-        radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_2);
-        radioQ2Ans1 = (RadioButton) findViewById(R.id.radioQ2Ans1);
+        radioGroup = findViewById(R.id.radioQuestion_2);
+        radioQ2Ans1 = findViewById(R.id.radioQ2Ans1);
         radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
             @Override
@@ -249,43 +249,14 @@ public class MainActivity extends AppCompatActivity {
          * Question 3 - Toast message which answer is correct (3rd answer is correct)
          */
 
-        noPillars = (EditText) findViewById(R.id.edt_pillars);
-        int pillars = Integer.parseInt(noPillars.getText().toString());
-
-        public void countPillars(int pillars){
-
-            // check if user fill his name and if not, set cipher to "*"
-            startTheGame(letterList);
-
-            // find which radio button is selected
-
-            if (pillars == 15) {
-
-                //Toast message correct answer
-                showCorrectAnswToast();
-
-                //Set letter to cipher
-                letterList.get(3).setText("A");
-                letterList.get(3).setTextColor(getResources().getColor(R.color.colorCipher));
-
-                //Get progress count of finished questions
-                textProgress.setText(progressStatus++ + "/6");
-
-                // Mark the question as executed
-                executedList.set(2, true);
-
-                // Are all answers true
-                if (areAllAnswersCorrect()) {
-                    // Open Thanks page whit USER_NAME intent
-                    openThanksPage();
-                }
-
-            } else {
-                // Toast message wrong answer
-                showFalseAnswToast();
-
-            }
-        };
+        EditText noPillars = (EditText) findViewById(R.id.edt_pillars);
+        int pillarsNo = 0;
+        try {
+            pillarsNo = Integer.parseInt(noPillars.getText().toString());
+        } catch (NumberFormatException exc) {
+            // when the edit text content is not valid integer, use the 0 value
+        }
+        countPillars(pillarsNo);
 
 /**
  * Question 3 - Toast message which answer is correct (3rd answer is correct)
@@ -334,157 +305,157 @@ Toast.LENGTH_SHORT).show();
 
  */
 
-            /**
-             * Question 4 - Toast message which answer is correct (first answer is correct)
-             */
-            radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_4);
-            radioQ4Ans1 = (RadioButton) findViewById(R.id.radioQ4Ans1);
-            radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+        /**
+         * Question 4 - Toast message which answer is correct (first answer is correct)
+         */
+        radioGroup = findViewById(R.id.radioQuestion_4);
+        radioQ4Ans1 = findViewById(R.id.radioQ4Ans1);
+        radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                    // check if user fill his name and if not, set cipher to "*"
-                    startTheGame(letterList);
+                // check if user fill his name and if not, set cipher to "*"
+                startTheGame(letterList);
 
-                    // find which radio button is selected
+                // find which radio button is selected
 
-                    if (checkedId == R.id.radioQ4Ans1 && !executedList.get(3)) {
-                        //Set textColor for true answer
-                        radioQ4Ans1.setTextColor(getResources().getColor(R.color.colorGold));
+                if (checkedId == R.id.radioQ4Ans1 && !executedList.get(3)) {
+                    //Set textColor for true answer
+                    radioQ4Ans1.setTextColor(getResources().getColor(R.color.colorGold));
 
-                        //Toast message correct answer
-                        showCorrectAnswToast();
+                    //Toast message correct answer
+                    showCorrectAnswToast();
 
-                        //Set letter to cipher
-                        letterList.get(5).setText("A");
-                        letterList.get(5).setTextColor(getResources().getColor(R.color.colorCipher));
+                    //Set letter to cipher
+                    letterList.get(5).setText("A");
+                    letterList.get(5).setTextColor(getResources().getColor(R.color.colorCipher));
 
-                        //Get progress count of finished questions
-                        textProgress.setText(progressStatus++ + "/6");
+                    //Get progress count of finished questions
+                    textProgress.setText(progressStatus++ + "/6");
 
-                        // Mark the question as executed
-                        executedList.set(3, true);
+                    // Mark the question as executed
+                    executedList.set(3, true);
 
-                        // Are all answers true
-                        if (areAllAnswersCorrect()) {
-                            // Open Thanks page whit USER_NAME intent
-                            openThanksPage();
-                        }
-
-                    } else {
-                        //Toast message wrong answer
-                        showFalseAnswToast();
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
                     }
+
+                } else {
+                    //Toast message wrong answer
+                    showFalseAnswToast();
                 }
-            });
-
-            /**
-             * Question 5 - Toast message which answer is correct (2nd answer is correct)
-             */
-            radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_5);
-            radioQ5Ans2 = (RadioButton) findViewById(R.id.radioQ5Ans2);
-            radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                    // check if user fill his name and if not, set cipher to "*"
-                    startTheGame(letterList);
-
-                    // find which radio button is selected
-                    if (checkedId == R.id.radioQ5Ans2 && !executedList.get(4)) {
-
-                        //Set textColor for true answer
-                        radioQ5Ans2.setTextColor(getResources().getColor(R.color.colorGold));
-
-                        //Toast message correct answer
-                        showCorrectAnswToast();
-
-                        //Set letter to cipher
-                        letterList.get(2).setText("T");
-                        letterList.get(2).setTextColor(getResources().getColor(R.color.colorCipher));
-
-                        //Get progress count of finished questions
-                        textProgress.setText(progressStatus++ + "/6");
-
-                        // Mark the question as executed
-                        executedList.set(4, true);
-
-                        // Are all answers true
-                        if (areAllAnswersCorrect()) {
-                            // Open Thanks page whit USER_NAME intent
-                            openThanksPage();
-                        }
-                    } else {
-                        //Toast message wrong answer
-                        showFalseAnswToast();
-                    }
-                }
-            });
-
-            /**
-             * Question 6 - Toast message which answer is correct (first 3 answers are correct)
-             */
-            chkBoxQ6Ans1 = findViewById(R.id.chkBoxQ6Ans1);
-            chkBoxQ6Ans2 = findViewById(R.id.chkBoxQ6Ans2);
-            chkBoxQ6Ans3 = findViewById(R.id.chkBoxQ6Ans3);
-            chkBoxQ6Ans4 = findViewById(R.id.chkBoxQ6Ans4);
-
-            CompoundButton.OnCheckedChangeListener checkBoxListener = new CompoundButton.OnCheckedChangeListener() {
-
-                @Override
-                public void onCheckedChanged(CompoundButton button, boolean isChecked) {
-
-                    // check if user fill his name and if not, set cipher to "*"
-                    startTheGame(letterList);
-
-                    // find which checkbox is selected
-
-                    if (chkBoxQ6Ans1.isChecked() && chkBoxQ6Ans2.isChecked() && chkBoxQ6Ans3.isChecked()
-                            && !chkBoxQ6Ans4.isChecked() && !executedList.get(5)) {
-
-                        //Set textColor for true answer
-                        chkBoxQ6Ans1.setTextColor(getResources().getColor(R.color.colorGold));
-                        chkBoxQ6Ans2.setTextColor(getResources().getColor(R.color.colorGold));
-                        chkBoxQ6Ans3.setTextColor(getResources().getColor(R.color.colorGold));
-
-                        //Toast message show correct answer
-                        showCorrectAnswToast();
-
-                        //Set letter to cipher
-                        letterList.get(0).setText("V");
-                        letterList.get(0).setTextColor(getResources().getColor(R.color.colorCipher));
-
-                        //Get progress count of finished questions
-                        textProgress.setText(progressStatus++ + "/6");
-
-                        // Mark the question as executed
-                        executedList.set(5, true);
-
-                        // Are all answers true
-                        if (areAllAnswersCorrect()) {
-                            // Open Thanks page whit USER_NAME intent
-                            openThanksPage();
-                        }
-
-                    } else {
-
-                        //Toast message wrong answer
-                        showFalseAnswToast();
-                    }
-                }
-            };
-
-            chkBoxQ6Ans1.setOnCheckedChangeListener(checkBoxListener);
-            chkBoxQ6Ans2.setOnCheckedChangeListener(checkBoxListener);
-            chkBoxQ6Ans3.setOnCheckedChangeListener(checkBoxListener);
-            chkBoxQ6Ans4.setOnCheckedChangeListener(checkBoxListener);
-        }
+            }
+        });
 
         /**
-         * Already executed - do only one time (add +1 correct question)
+         * Question 5 - Toast message which answer is correct (2nd answer is correct)
          */
+        radioGroup = findViewById(R.id.radioQuestion_5);
+        radioQ5Ans2 = findViewById(R.id.radioQ5Ans2);
+        radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                // check if user fill his name and if not, set cipher to "*"
+                startTheGame(letterList);
+
+                // find which radio button is selected
+                if (checkedId == R.id.radioQ5Ans2 && !executedList.get(4)) {
+
+                    //Set textColor for true answer
+                    radioQ5Ans2.setTextColor(getResources().getColor(R.color.colorGold));
+
+                    //Toast message correct answer
+                    showCorrectAnswToast();
+
+                    //Set letter to cipher
+                    letterList.get(2).setText("T");
+                    letterList.get(2).setTextColor(getResources().getColor(R.color.colorCipher));
+
+                    //Get progress count of finished questions
+                    textProgress.setText(progressStatus++ + "/6");
+
+                    // Mark the question as executed
+                    executedList.set(4, true);
+
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
+                    }
+                } else {
+                    //Toast message wrong answer
+                    showFalseAnswToast();
+                }
+            }
+        });
+
+        /**
+         * Question 6 - Toast message which answer is correct (first 3 answers are correct)
+         */
+        chkBoxQ6Ans1 = findViewById(R.id.chkBoxQ6Ans1);
+        chkBoxQ6Ans2 = findViewById(R.id.chkBoxQ6Ans2);
+        chkBoxQ6Ans3 = findViewById(R.id.chkBoxQ6Ans3);
+        chkBoxQ6Ans4 = findViewById(R.id.chkBoxQ6Ans4);
+
+        CompoundButton.OnCheckedChangeListener checkBoxListener = new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton button, boolean isChecked) {
+
+                // check if user fill his name and if not, set cipher to "*"
+                startTheGame(letterList);
+
+                // find which checkbox is selected
+
+                if (chkBoxQ6Ans1.isChecked() && chkBoxQ6Ans2.isChecked() && chkBoxQ6Ans3.isChecked()
+                        && !chkBoxQ6Ans4.isChecked() && !executedList.get(5)) {
+
+                    //Set textColor for true answer
+                    chkBoxQ6Ans1.setTextColor(getResources().getColor(R.color.colorGold));
+                    chkBoxQ6Ans2.setTextColor(getResources().getColor(R.color.colorGold));
+                    chkBoxQ6Ans3.setTextColor(getResources().getColor(R.color.colorGold));
+
+                    //Toast message show correct answer
+                    showCorrectAnswToast();
+
+                    //Set letter to cipher
+                    letterList.get(0).setText("V");
+                    letterList.get(0).setTextColor(getResources().getColor(R.color.colorCipher));
+
+                    //Get progress count of finished questions
+                    textProgress.setText(progressStatus++ + "/6");
+
+                    // Mark the question as executed
+                    executedList.set(5, true);
+
+                    // Are all answers true
+                    if (areAllAnswersCorrect()) {
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
+                    }
+
+                } else {
+
+                    //Toast message wrong answer
+                    showFalseAnswToast();
+                }
+            }
+        };
+
+        chkBoxQ6Ans1.setOnCheckedChangeListener(checkBoxListener);
+        chkBoxQ6Ans2.setOnCheckedChangeListener(checkBoxListener);
+        chkBoxQ6Ans3.setOnCheckedChangeListener(checkBoxListener);
+        chkBoxQ6Ans4.setOnCheckedChangeListener(checkBoxListener);
+    }
+
+    /**
+     * Already executed - do only one time (add +1 correct question)
+     */
 
     private boolean areAllAnswersCorrect() {
         for (Boolean check : executedList) {
@@ -535,7 +506,7 @@ Toast.LENGTH_SHORT).show();
      * Save userName and open Thanks Page
      */
     public void openThanksPage() {
-        EditText userName = (EditText) findViewById(R.id.user_name);
+        EditText userName = findViewById(R.id.user_name);
         Intent intent = new Intent(this, ThanksPage.class);
         String name = userName.getText().toString();
         intent.putExtra("USER_NAME", name);
@@ -566,6 +537,40 @@ Toast.LENGTH_SHORT).show();
                 letter.setText("*");
                 letter.setTextColor(getResources().getColor(R.color.colorGold));
             }
+        }
+    }
+
+    public void countPillars(int pillarsNo) {
+
+        // check if user fill his name and if not, set cipher to "*"
+        startTheGame(letterList);
+
+        // check correct answer 15 in EditText
+        if (pillarsNo == 15 && !executedList.get(2)) {
+
+            //Toast message correct answer
+            showCorrectAnswToast();
+
+            //Set letter to cipher
+            letterList.get(3).setText("A");
+            letterList.get(3).setTextColor(getResources().getColor(R.color.colorCipher));
+
+            //Get progress count of finished questions
+            textProgress.setText(progressStatus++ + "/6");
+
+            // Mark the question as executed
+            executedList.set(2, true);
+
+            // Are all answers true
+            if (areAllAnswersCorrect()) {
+                // Open Thanks page whit USER_NAME intent
+                openThanksPage();
+            }
+
+        } else {
+            // Toast message wrong answer
+            showFalseAnswToast();
+
         }
     }
 }

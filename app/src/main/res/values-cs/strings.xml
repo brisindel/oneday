@@ -5,13 +5,6 @@
 	<string name="intro">Objevte krásy města sta věží, poznejte magickou atmosféru srdce Evropy. Každé místo vám také prozradí indicii k tajemné šifře.</string>
 	<string name="user_name">napište své jméno</string>
 	<string name="start">Dobrodružná cesta začíná!</string>
-	<string name="title">V jednom dni vás čeká</string>
-	<string name="fact_1">\u25CF Matka měst</string>
-	<string name="fact_2">\u25CF Město sto věží</string>
-	<string name="fact_3">\u25CF Magická atmosféra</string>
-	<string name="fact_4">\u25CF Srdce Evropy</string>
-	<string name="fact_5">\u25CF Největší hrad</string>
-	<string name="fact_6">\u25CF Nejlepší pivo</string>
 	<string name="question_1_place">1. Václavské náměstí</string>
 	<string name="question_1_description">Výlet začneme v pražském kulturním, společenském a obchodním centru.</string>
 	<string name="question_1_visit"><b>Navštivte:</b> Národní muzeum, pomník sv. Václava, palác Lucerna.</string>
