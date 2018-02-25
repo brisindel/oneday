@@ -1,6 +1,9 @@
 package com.example.android.oneday;
 
+import android.app.AlertDialog;
+import android.app.MediaRouteButton;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
@@ -12,6 +15,7 @@ import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -31,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton radioQ1Ans4;
     private RadioButton radioQ2Ans1;
-    //    private RadioButton radioQ3Ans3;
     private RadioButton radioQ4Ans1;
     private RadioButton radioQ5Ans2;
     private CheckBox chkBoxQ6Ans1, chkBoxQ6Ans2, chkBoxQ6Ans3, chkBoxQ6Ans4;
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private int progressStatus = 1;
     private TextView textProgress;
     private Resources resources;
+    int scoreAll = 0;
+    int scoreTrue = 0;
 
     //Localisation of quiz places
     private static final double VACLAVAK_LAT = 50.0797778;
@@ -155,6 +160,25 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /**
+         * Submit button - open Thanks Page and visualise "all number question attempt and correct attempt"
+         */
+        final Button submitBtn = findViewById(R.id.submit);
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Are all answers true
+                if (areAllAnswersCorrect()) {
+
+                    // Dialog box
+                    dialogBox();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), (resources.getString(R.string.correct_no)),
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        /**
          * Question 1 - Toast message which answer is correct (4th answer is correct)
          */
         radioGroup = findViewById(R.id.radioQuestion_1);
@@ -187,12 +211,9 @@ public class MainActivity extends AppCompatActivity {
                     // Mark the question as executed
                     executedList.set(0, true);
 
-                    // Are all answers true
-                    if (areAllAnswersCorrect()) {
-                        // Open Thanks page whit USER_NAME intent
-                        openThanksPage();
-                    }
-                } else {
+                } else
+
+                {
                     // Toast message wrong answer
                     showFalseAnswToast();
                 }
@@ -232,12 +253,6 @@ public class MainActivity extends AppCompatActivity {
                     // Mark the question as executed
                     executedList.set(1, true);
 
-                    // Are all answers true
-                    if (areAllAnswersCorrect()) {
-                        // Open Thanks page whit USER_NAME intent
-                        openThanksPage();
-                    }
-
                 } else {
                     // Toast message wrong answer
                     showFalseAnswToast();
@@ -246,64 +261,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /**
-         * Question 3 - Toast message which answer is correct (3rd answer is correct)
+         * Question 3 - Toast message which answer is correct (correct 15)
          */
 
-        EditText noPillars = (EditText) findViewById(R.id.edt_pillars);
-        int pillarsNo = 0;
-        try {
-            pillarsNo = Integer.parseInt(noPillars.getText().toString());
-        } catch (NumberFormatException exc) {
-            // when the edit text content is not valid integer, use the 0 value
-        }
-        countPillars(pillarsNo);
+        noPillars = (EditText) findViewById(R.id.edt_pillars);
 
-/**
- * Question 3 - Toast message which answer is correct (3rd answer is correct)
+        noPillars.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!gameStarted) {
+                    gameStarted = true;
 
+                    for (TextView letter : letterList) {
+                        letter.setText("*");
+                        letter.setTextColor(getResources().getColor(R.color.colorGold));
+                    }
+                }
+            }
 
- radioGroup = (RadioGroup) findViewById(R.id.radioQuestion_3);
- radioQ3Ans3 = (RadioButton) findViewById(R.id.radioQ3Ans3);
- radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
-@Override public void onCheckedChanged(RadioGroup group, int checkedId) {
+            @Override
+            public void afterTextChanged(Editable s) {
+                int pillarsNo = Integer.parseInt(noPillars.getText().toString());
+                countPillars(pillarsNo);
 
-// check if user fill his name and if not, set cipher to "*"
-startTheGame(letterList);
-
-// find which radio button is selected
-
-if (checkedId == R.id.radioQ3Ans3 && !executedList.get(2)) {
-//Set textColor for true answer
-radioQ3Ans3.setTextColor(getResources().getColor(R.color.colorGold));
-
-//Toast information correct answer
-showCorrectAnswToast();
-
-//Set letter to cipher
-letterList.get(3).setText("A");
-letterList.get(3).setTextColor(getResources().getColor(R.color.colorCipher));
-
-//Get progress count of finished questions
-textProgress.setText(progressStatus++ + "/6");
-
-// Mark the question as executed
-executedList.set(2, true);
-
-// Are all answers true
-if (areAllAnswersCorrect()) {
-// Open Thanks page whit USER_NAME intent
-openThanksPage();
-}
-
-} else {
-Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
-Toast.LENGTH_SHORT).show();
-}
-}
-});
-
- */
+            }
+        });
 
         /**
          * Question 4 - Toast message which answer is correct (first answer is correct)
@@ -336,12 +322,6 @@ Toast.LENGTH_SHORT).show();
 
                     // Mark the question as executed
                     executedList.set(3, true);
-
-                    // Are all answers true
-                    if (areAllAnswersCorrect()) {
-                        // Open Thanks page whit USER_NAME intent
-                        openThanksPage();
-                    }
 
                 } else {
                     //Toast message wrong answer
@@ -382,11 +362,6 @@ Toast.LENGTH_SHORT).show();
                     // Mark the question as executed
                     executedList.set(4, true);
 
-                    // Are all answers true
-                    if (areAllAnswersCorrect()) {
-                        // Open Thanks page whit USER_NAME intent
-                        openThanksPage();
-                    }
                 } else {
                     //Toast message wrong answer
                     showFalseAnswToast();
@@ -433,12 +408,6 @@ Toast.LENGTH_SHORT).show();
                     // Mark the question as executed
                     executedList.set(5, true);
 
-                    // Are all answers true
-                    if (areAllAnswersCorrect()) {
-                        // Open Thanks page whit USER_NAME intent
-                        openThanksPage();
-                    }
-
                 } else {
 
                     //Toast message wrong answer
@@ -454,7 +423,7 @@ Toast.LENGTH_SHORT).show();
     }
 
     /**
-     * Already executed - do only one time (add +1 correct question)
+     * Already executed - do only one time
      */
 
     private boolean areAllAnswersCorrect() {
@@ -513,16 +482,38 @@ Toast.LENGTH_SHORT).show();
         startActivity(intent);
     }
 
+    /**
+     * If answer is correct, show Toast message.
+     * Count +1 for number of attempt
+     * Count +1 fot correct number
+     */
+
     public void showCorrectAnswToast() {
         String userName1 = userName.getText().toString();
         Toast.makeText(getApplicationContext(), userName1 + " " + getResources().getString(R.string.true_answ),
                 Toast.LENGTH_SHORT).show();
+
+        //Add ++ to number of all attempt and ++ to right answered question
+        ++scoreAll;
+        ++scoreTrue;
     }
+
+    /**
+     * If answer is wrong, show Toast message.
+     * Count +1 for number of attempt
+     */
 
     private void showFalseAnswToast() {
         Toast.makeText(getApplicationContext(), getResources().getString(R.string.false_answ),
                 Toast.LENGTH_SHORT).show();
+
+        //Add ++ to number of all attempt
+        ++scoreAll;
     }
+
+    /**
+     * Initiation of the quiz
+     */
 
     private void startTheGame(List<TextView> letterList) {
         if (!gameStarted) {
@@ -540,10 +531,11 @@ Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void countPillars(int pillarsNo) {
+    /**
+     * Question 3 - validation EditText input - correct is 15
+     */
 
-        // check if user fill his name and if not, set cipher to "*"
-        startTheGame(letterList);
+    public void countPillars(int pillarsNo) {
 
         // check correct answer 15 in EditText
         if (pillarsNo == 15 && !executedList.get(2)) {
@@ -561,16 +553,43 @@ Toast.LENGTH_SHORT).show();
             // Mark the question as executed
             executedList.set(2, true);
 
-            // Are all answers true
-            if (areAllAnswersCorrect()) {
-                // Open Thanks page whit USER_NAME intent
-                openThanksPage();
-            }
+            //Stop edit after correct answer
+            noPillars.setEnabled(false);
 
         } else {
             // Toast message wrong answer
             showFalseAnswToast();
-
         }
+    }
+
+    public void dialogBox() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage((resources.getString(R.string.thanks_dialog) + "\n" + "\n" + (resources.getString(R.string.allAttempt)
+                + " " + scoreAll + "\n" + (resources.getString(R.string.correctAttempt)) + " "
+                + scoreTrue) + "\n" + "\n" + (resources.getString(R.string.dialog_next))));
+        alertDialogBuilder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        // Open Thanks page whit USER_NAME intent
+                        openThanksPage();
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("cancel",
+                new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }

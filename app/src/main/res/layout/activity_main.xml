@@ -152,10 +152,7 @@
                 android:inputType="text"
                 android:maxLength="20"
                 android:maxLines="1"
-                android:paddingBottom="8dp"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:paddingTop="8dp"
+                android:padding="8dp"
                 android:textColor="@color/colorCipher"
                 android:textColorHint="@color/colorCipher"
                 android:textSize="15sp" />
@@ -532,22 +529,18 @@
                     android:id="@+id/edt_pillars"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/edt_answ"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/edittext"
                     android:fontFamily="@font/abeezee"
                     android:gravity="center"
-                    android:inputType="numberPassword"
+                    android:hint="@string/edt_answ"
+                    android:inputType="number"
                     android:maxLength="2"
                     android:maxLines="1"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:paddingTop="8dp"
+                    android:padding="8dp"
                     android:textColor="@color/colorCipher"
                     android:textColorHint="@color/colorCipher"
-                    android:textSize="15sp"
-                    />
+                    android:textSize="15sp" />
 
                 <!-- previous solution
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -1006,6 +999,22 @@
                         android:text="@string/question_6_ans_4" />
                 </LinearLayout>
             </LinearLayout>
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext"
+                android:fontFamily="@font/abeezee"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/submit"
+                android:textAllCaps="true"
+                android:textColor="@color/colorCipher"
+                android:textSize="15sp"
+                />
 
             <TextView
                 style="@style/subtitle2"

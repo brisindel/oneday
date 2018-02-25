@@ -128,13 +128,19 @@
     <string name="question_6_ans_3">Franz Kafka</string>
     <string name="question_6_ans_4">J. W. Goethe</string>
 
-    <!--Toast quiz True/False answ/-->
+    <!--Toast quiz True/False answ/Submit button-->
     <string name="true_answ">CORRECT, the key is yours!</string>
     <string name="false_answ">Try it again.</string>
     <string name="miss_user_name">Write your name above.</string>
 
     <!--End of layout-->
     <string name="thanks"><b>THANK YOU</b>, that you went with us to discover these beautiful places in the heart of Europe - magical Prague.</string>
+    <string name="submit">submit</string>
+    <string name="allAttempt">Number of attempt:</string>
+    <string name="correctAttempt">Number of correct:</string>
+    <string name="correct_no">All answers have to be answered correctly.</string>
+    <string name="thanks_dialog"><b>That is AMAZING, you solved a secret cipher!</b></string>
+    <string name="dialog_next"><i>Click on OK button if you want to know more. For exit click on CANCEL.</i></string>
 
     <!--ThanksMessage new page-->
     <string name="title_activity_thanks_message">thanksMessage</string>
