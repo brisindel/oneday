@@ -1,15 +1,14 @@
 package com.example.android.oneday;
 
 import android.app.AlertDialog;
-import android.app.MediaRouteButton;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
@@ -47,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
     private int progressStatus = 1;
     private TextView textProgress;
     private Resources resources;
-    int scoreAll = 0;
-    int scoreTrue = 0;
+    private int scoreAll = 0;
+    private int scoreTrue = 0;
+    private static int pillarsNo = 0;
 
     //Localisation of quiz places
     private static final double VACLAVAK_LAT = 50.0797778;
@@ -263,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Question 3 - Toast message which answer is correct (correct 15)
          */
-
         noPillars = (EditText) findViewById(R.id.edt_pillars);
 
         noPillars.addTextChangedListener(new TextWatcher() {
@@ -285,9 +284,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                int pillarsNo = Integer.parseInt(noPillars.getText().toString());
+                int pillarsNo = 0;
+                try {
+                    pillarsNo = Integer.parseInt(noPillars.getText().toString());
+                } catch (NumberFormatException exc) {
+                    // when the edit text content is not valid integer, use the 0 value
+                }
                 countPillars(pillarsNo);
-
             }
         });
 
@@ -591,5 +594,31 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
+    }
+
+    /**
+     * This method saves data to be available when the device is rotating
+     */
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("pillarsNo", pillarsNo);
+        outState.putInt("scoreAll", scoreAll);
+        outState.putInt("scoreTrue", scoreTrue);
+    }
+
+    /**
+     * This method will restore all the data saves in the previous method, when rotating the device
+     * for this to work you need to give every item that you want to be saves when rotating the device - a specific id on the xml file
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        pillarsNo = savedInstanceState.getInt("pillarsNo");
+        scoreAll = savedInstanceState.getInt("scoreAll");
+        scoreTrue = savedInstanceState.getInt("scoreTrue");
+        countPillars(pillarsNo);
     }
 }

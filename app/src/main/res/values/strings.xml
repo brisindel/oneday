@@ -5,7 +5,6 @@
     <string name="intro">Discover the beauty of the city of 100 towers and magical athmosphere. Every place can give you a key for a secret cipher.</string>
 
     <string name="user_name">write your name</string>
-    <string name="edt_answ">write your answer</string>
     <string name="start">Adventurous journey starts now!</string>
 
     <!--Cipher hint-->
@@ -76,6 +75,7 @@
 
     <!--Next stop 3-->
     <string name="direction3">On the right side you can see the next point - Prague Castle. Follow the directiones to the next point.</string>
+    <string name="edt_answ">write your answer</string>
 
     <!--Question 4-->
     <!--Place 4-->
@@ -136,13 +136,15 @@
     <!--End of layout-->
     <string name="thanks"><b>THANK YOU</b>, that you went with us to discover these beautiful places in the heart of Europe - magical Prague.</string>
     <string name="submit">submit</string>
+
+    <!--Dialog-->
     <string name="allAttempt">Number of attempt:</string>
     <string name="correctAttempt">Number of correct:</string>
     <string name="correct_no">All answers have to be answered correctly.</string>
     <string name="thanks_dialog"><b>That is AMAZING, you solved a secret cipher!</b></string>
     <string name="dialog_next"><i>Click on OK button if you want to know more. For exit click on CANCEL.</i></string>
 
-    <!--ThanksMessage new page-->
+    <!--ThanksMessage new activity-->
     <string name="title_activity_thanks_message">thanksMessage</string>
     <string name="bravo">!BRAVO!</string>
     <string name="cipher">the secret cipher is the <b>VLTAVA</b> and that is why our journey finishes right here.</string>

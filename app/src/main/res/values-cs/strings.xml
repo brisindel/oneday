@@ -80,4 +80,10 @@
 	<string name="cilet6">A</string>
     <string name="cilet4">A</string>
 	<string name="edt_answ">napište odpověď</string>
+    <string name="submit">šifra</string>
+	<string name="allAttempt">Počet pokusů:</string>
+	<string name="correctAttempt">Počet správných odpovědí:</string>
+	<string name="correct_no">Zodpovězte všechny otázky.</string>
+	<string name="thanks_dialog"><b>ú</b></string>
+	<string name="dialog_next"><i>Šifru a další informace naleznete pod tlačítkem OK. Pro ukončení klikněte na CANCEL.</i></string>
 </resources>

@@ -79,4 +79,11 @@
     <string name="cilet5">V</string>
     <string name="cilet6">A</string>
     <string name="cilet4">A</string>
+    <string name="edt_answ">write your answer</string>
+    <string name="submit">submit</string>
+    <string name="allAttempt">Number of attempt:</string>
+    <string name="correctAttempt">Number of correct:</string>
+    <string name="correct_no">All answers have to be answered correctly.</string>
+    <string name="thanks_dialog"><b>That is AMAZING, you solved a secret cipher!</b></string>
+    <string name="dialog_next"><i>Click on OK button if you want to know more. For exit click on CANCEL.</i></string>
 </resources>
